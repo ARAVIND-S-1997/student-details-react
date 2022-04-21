@@ -1,2 +1,2 @@
 
-export const apiurl=`http://localhost:9000/user`
+export const apiurl=`http://localhost:9000`

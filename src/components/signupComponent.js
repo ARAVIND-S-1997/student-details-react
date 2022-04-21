@@ -59,7 +59,7 @@ export function Signup() {
     // signup api request
     const signup = (values) => {
         try {
-            axios({ url: `${apiurl}/signup`, method: "POST", data: values })
+            axios({ url: `${apiurl}/user/signup`, method: "POST", data: values })
                 .then((response) => {
                     if (response.status === 200) {
                         history.push("/");

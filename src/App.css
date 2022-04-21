@@ -1,29 +1,164 @@
-.login-form-card{
+/* navbar */
+.navbar {
+    background-color: #808080;
+    height: 80px;
+}
+
+/* login part */
+
+.login-form-card {
     height: 1000px;
     width: 550px;
 }
-.login-form-container,.signup-form-container{
+
+.login-form-container {
     height: 100px;
     width: 500px;
-  margin-top: 50px;
-  margin-left:50px;
+    margin-top: 50px;
+    margin-left: 440px;
+
 }
-.login-form,.signup-form{
+
+.login-form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     flex-wrap: nowrap;
- }
-    
-.login-emailid-part,.login-password-part
-,.signup-firstname-part,.signup-lastname-part
-,.signup-dob-part,.signup-emailid-part,
-.signup-password-part,.signup-confirmPassword-part{
+}
+
+.login-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.login-emailid-part,
+.login-password-part {
     display: flex;
-     flex-direction:column;
- }
-    
-.login-form-button,.signup-form-button{
-margin-top: 10px;
-background-color:aliceblue;
+    flex-direction: column;
+}
+
+/* signup */
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.signup-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.signup-firstname-part,
+.signup-lastname-part,
+.signup-dob-part,
+.signup-emailid-part,
+.signup-password-part,
+.signup-confirmPassword-part {
+    display: flex;
+    flex-direction: column;
+}
+
+/* forget password */
+
+.forgetpassword-form-container {
+    height: 100px;
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.forgetpassword-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.forgetpassword-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.forgetpassword-emailid-part {
+    display: flex;
+    flex-direction: column;
+}
+
+/* change password */
+
+.changepassword-form-container {
+    height: 100px;
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.changepassword-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.changepassword-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.changepassword-password-part {
+    display: flex;
+    flex-direction: column;
+}
+
+/* my classroom */
+
+.myclassroom-content-container-one {
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    margin: 10px;
+    height: 100%;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.myclassroom-content-container-two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.myclassroom-main-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* create classroom */
+
+.create-classroom-main-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.create-classroom-form {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 300px;
+}
+
+.create-classname-part,
+.create-section-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.classdetails-content{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between
 }

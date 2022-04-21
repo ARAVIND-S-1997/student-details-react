@@ -35,8 +35,9 @@ export function Login() {
 
     // login request
     const login = (value) => {
-        axios({ url: `${apiurl}/login`, method: "POST", data: value })
+        axios({ url: `${apiurl}/user/login`, method: "POST", data: value })
             .then((response) => {
+                console.log(response);
                 if (response.status === 200) {
                     try {
                         const token = response.data.finalToken;
@@ -92,8 +93,8 @@ export function Login() {
                         </Form.Group>
 
                         {/* links for forget password and signup */}
-                        <Link>Forget password</Link>
-                        <Link>Signup</Link>
+                        <Link to="/forgetpassword">Forget password</Link>
+                        <Link to="/signup">Signup</Link>
 
                         <Button className="login-form-button" variant="primary" type="submit">
                             Submit

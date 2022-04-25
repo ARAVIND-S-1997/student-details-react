@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 // other file imports
 import { authtoken} from '../authData'
+import { Myclassroom } from './myClassroom';
 
 // welcome dashboard component
 export function Welcomedashboard() {
@@ -24,6 +25,7 @@ export function Welcomedashboard() {
                                 <Nav.Link onClick={() => { history.push("/createclassroom") }}>Create Classroom</Nav.Link>
                             </Nav.Item>
                         </Nav>
+                        <Myclassroom/>
                     </div> : null}
                 </div>
         </div>

@@ -1,7 +1,7 @@
 // react bootstrap imports
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-
+import { firstname, lastname } from '../authData'
 // other file imports
 import { authtoken } from '../authData'
 
@@ -17,8 +17,10 @@ export function NavBar() {
                     <Navbar.Collapse className="justify-content-end">
                         {(authtoken !== null) ?
                             <Navbar.Text>
-                                Signed in as: <a href="#login">ARAVIND</a>
-                            </Navbar.Text> : null
+                                Signed in as: <a href="#login">{firstname}{lastname}</a>
+                            </Navbar.Text> : <Navbar.Text>
+
+                            </Navbar.Text>
                         }
                     </Navbar.Collapse>
                 </Container>

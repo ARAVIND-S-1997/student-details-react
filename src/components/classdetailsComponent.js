@@ -26,8 +26,8 @@ export function Classdetails() {
     useEffect(getStudentsReq, [id])
     return (
         <div>
-            <div>
-                <Button onClick={() => { history.push(`/addstudent/${id}`) }} variant="primary" type="submit">
+            <div className='classdetails-add-student-btn-div'>
+                <Button className='classdetails-add-student-btn'onClick={() => { history.push(`/addstudent/${id}`) }} variant="primary" type="submit">
                     Add student
                 </Button>
             </div>

@@ -1,8 +1,9 @@
-import { useParams,useHistory } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import axios from "axios";
-import { authtoken } from "../authData";
+import { authtoken, authemail } from "../authData";
 import { apiurl } from "../apiLink";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import Card from 'react-bootstrap/Card';
 
 
 import { ButtonGroup } from 'react-bootstrap';
@@ -12,33 +13,42 @@ export function IndividualStudentDetails() {
     const { id } = useParams();
     console.log(id);
 
-    const history=useHistory();
+    const history = useHistory();
     const [student, setStudent] = useState([]);
-    console.log(student)
+    const _id = student._id
+    console.log("Id is ", _id)
     const getIndividualStudentReq = () => {
         const auth = {
-            token: authtoken
+            token: authtoken,
+            email: authemail
         }
-        axios({ url: `${apiurl}/addstudent//getstudent/${id}`, method: "get", headers: auth })
-            .then((response) => setStudent(response.data.getStudentReq.students))
+        axios({ url: `${apiurl}/addstudent/getstudent/${id}`, method: "get", headers: auth })
+            .then((response) => {
+                console.log(response)
+                const finalData = response.data.find((value) => { return value._id.toString() === id.toString() });
+                setStudent(finalData)
+            })
     }
+
     useEffect(getIndividualStudentReq, [id]);
+
     return (
         <div>
-            {student.map(({ name, dob, emailid, address, contactno, religion,_id }) => (
-                <div>
-                    <h1>Name:{name}</h1>
-                    <h1>Date of birth:{dob}</h1>
-                    <h1>Email id:{emailid}</h1>
-                    <h1>Address:{address}</h1>
-                    <h1>Contact number:{contactno}</h1>
-                    <h1>Religion:{religion}</h1>
+            <Card className="indiv-stud-card">
+                <Card.Body>
+                    <h4>Name:{student.name}</h4>
+                    <h4>Date of birth:{student.dob}</h4>
+                    <h4>Email id:{student.emailid}</h4>
+                    <h4>Address:{student.address}</h4>
+                    <h4>Contact number:{student.contactno}</h4>
+                    <h4>Religion:{student.religion}</h4>
                     <ButtonGroup>
-                        <Button onClick={()=>{history.push(`/editstudent/${_id}`)}} variant="primary">Edit</Button>
+                        <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
                         <Button variant="danger">Delete</Button>
                     </ButtonGroup>
-                </div>
-            ))}
+                </Card.Body>
+            </Card>
+
         </div>
     )
 }

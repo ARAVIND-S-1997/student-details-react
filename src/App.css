@@ -26,6 +26,7 @@
     flex-wrap: nowrap;
 }
 
+
 .login-form-button {
     margin-top: 10px;
     background-color: aliceblue;
@@ -157,8 +158,52 @@
     flex-direction: column;
 }
 
-.classdetails-content{
-    display:flex;
+.classdetails-content {
+    display: flex;
     flex-direction: row;
     justify-content: space-between
+}
+
+/* Individual student component */
+.indiv-stud-card {
+    height: 300px;
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 50px
+}
+
+/* classdetails component */
+.classdetails-add-student-btn {
+    width: 90%;
+    display: flex;
+
+}
+
+.classdetails-add-student-btn-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+/* addstudent container */
+
+.add-student-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.add-student-name-part,
+.add-student-dob-part,
+.add-student-email-part,
+.add-student-address-part,
+.add-student-contactno-part,
+.add-student-religion-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-student-btn {
+    margin: 20px;
+    width: auto;
 }

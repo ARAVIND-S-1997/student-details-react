@@ -42,8 +42,12 @@ export function Login() {
                     try {
                         const token = response.data.finalToken;
                         const emailid = response.data.emailid;
+                        const firstname=response.data.firstname;
+                        const lastname=response.data.lastname;
                         localStorage.setItem("token", token);
                         localStorage.setItem("emailid", emailid);
+                        localStorage.setItem("firstname",firstname);
+                        localStorage.setItem("lastname",lastname);
                         history.push("/welcomedashboard");
                     } catch (errors) {
                         console.log("Error is:", errors)

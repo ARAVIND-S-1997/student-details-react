@@ -14,7 +14,7 @@ import { useFormik } from 'formik';
 // other file imports
 import { apiurl } from '../apiLink';
 import { authemail, authtoken } from "../authData"
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 // validationSchema for adding new student
 const formValidation = yup.object({
@@ -49,7 +49,7 @@ export function Addstudent() {
         validationSchema: formValidation,
         onSubmit: (data) => addstudentReq(data)
     })
-
+    const history = useHistory();
     const { id } = useParams();
     const addstudentReq = (value) => {
 
@@ -59,14 +59,23 @@ export function Addstudent() {
             id
         }
         axios({ url: `${apiurl}/addstudent/newstudent`, method: "POST", headers: auth, data: value })
+            .then((response) => {
+                try {
+                    if (response.status == 200) {
+                        history.push(`/classdetails/${id}`)
+                    }
+                }catch(error){
+                    console.log(error)
+                }
+        })
     }
     return (
-        <div>
-            <Card classname="">
-                <Card.Body>
-                    <Form onSubmit={handleSubmit} className="">
+        <div classname="add-student-main-container">
+            <Card classname="add-student-card">
+                <Card.Body >
+                    <Form onSubmit={handleSubmit} className="add-student-form">
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-name-part" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
                             <input
                                 name="name"
@@ -79,7 +88,7 @@ export function Addstudent() {
                             {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-dob-part" controlId="formBasicEmail">
                             <Form.Label>Date of birth</Form.Label>
                             <input
                                 name="dob"
@@ -92,7 +101,7 @@ export function Addstudent() {
                             {errors.dob && touched.dob ? (<div>{errors.dob}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-email-part" controlId="formBasicEmail">
                             <Form.Label>Email id</Form.Label>
                             <input
                                 name="emailid"
@@ -105,7 +114,7 @@ export function Addstudent() {
                             {errors.emailid && touched.emailid ? (<div>{errors.emailid}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-address-part" controlId="formBasicEmail">
                             <Form.Label>Address</Form.Label>
                             <input
                                 name="address"
@@ -118,7 +127,7 @@ export function Addstudent() {
                             {errors.address && touched.address ? (<div>{errors.address}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-contactno-part" controlId="formBasicEmail">
                             <Form.Label>Contact number</Form.Label>
                             <input
                                 name="contactno"
@@ -131,7 +140,7 @@ export function Addstudent() {
                             {errors.contactno && touched.contactno ? (<div>{errors.contactno}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="add-student-religion-part" controlId="formBasicEmail">
                             <Form.Label>Religion</Form.Label>
                             <input
                                 name="religion"
@@ -144,7 +153,7 @@ export function Addstudent() {
                             {errors.religion && touched.religion ? (<div>{errors.religion}</div>) : null}
                         </Form.Group>
 
-                        <Button className="" variant="primary" type="submit">
+                        <Button className="add-student-btn" variant="primary" type="submit">
                             Add
                         </Button>
 

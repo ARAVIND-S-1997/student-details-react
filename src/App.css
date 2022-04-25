@@ -148,7 +148,7 @@
 .create-classroom-form {
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 200px;
     width: 300px;
 }
 
@@ -185,7 +185,7 @@
     margin: 10px;
 }
 
-/* addstudent container */
+/* addstudent component */
 
 .add-student-form {
     display: flex;
@@ -204,6 +204,31 @@
 }
 
 .add-student-btn {
+    margin: 20px;
+    width: auto;
+}
+
+/* edit student component */
+
+
+.edit-student-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.edit-student-name-part,
+.edit-student-dob-part,
+.edit-student-email-part,
+.edit-student-address-part,
+.edit-student-contactno-part,
+.edit-student-religion-part {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.edit-student-btn {
     margin: 20px;
     width: auto;
 }

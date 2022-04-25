@@ -48,7 +48,7 @@ const formValidation = yup.object({
 export function EditStudentInfo() {
 
     const { id } = useParams();
-    console.log("Id is (edit student details)",id)
+    console.log("Id is (edit student details)", id)
 
     const getstudentinfo = () => {
         const auth = {
@@ -76,97 +76,100 @@ export function EditStudentInfo() {
 
     })
 
-//     const UpdateReq=()=>{
-// axios({url:""})
-//     }
+    //     const UpdateReq=()=>{
+    // axios({url:""})
+    //     }
 
     return (
         <div>
             <Card classname="">
                 <Card.Body>
 
+                    <Form className="edit-student-form">
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <input
-                            name="name"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.name}
-                            type="text"
-                            placeholder="Enter name"
-                        />
-                        {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
-                    </Form.Group>
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Date of birth</Form.Label>
-                        <input
-                            name="dob"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.dob}
-                            type="date"
-                            placeholder="Enter date of birth "
-                        />
-                        {errors.dob && touched.dob ? (<div>{errors.dob}</div>) : null}
-                    </Form.Group>
+                        <Form.Group className="edit-student-name-part" controlId="formBasicEmail">
+                            <Form.Label>Name</Form.Label>
+                            <input
+                                name="name"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.name}
+                                type="text"
+                                placeholder="Enter name"
+                            />
+                            {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
+                        </Form.Group>
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Email id</Form.Label>
-                        <input
-                            name="emailid"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.emailid}
-                            type="emailid"
-                            placeholder="Enter emailid"
-                        />
-                        {errors.emailid && touched.emailid ? (<div>{errors.emailid}</div>) : null}
-                    </Form.Group>
+                        <Form.Group className="edit-student-dob-part" controlId="formBasicEmail">
+                            <Form.Label>Date of birth</Form.Label>
+                            <input
+                                name="dob"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.dob}
+                                type="date"
+                                placeholder="Enter date of birth "
+                            />
+                            {errors.dob && touched.dob ? (<div>{errors.dob}</div>) : null}
+                        </Form.Group>
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Address</Form.Label>
-                        <input
-                            name="address"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.address}
-                            type="text"
-                            placeholder="Enter address(Full address) "
-                        />
-                        {errors.address && touched.address ? (<div>{errors.address}</div>) : null}
-                    </Form.Group>
+                        <Form.Group className="edit-student-email-part" controlId="formBasicEmail">
+                            <Form.Label>Email id</Form.Label>
+                            <input
+                                name="emailid"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.emailid}
+                                type="emailid"
+                                placeholder="Enter emailid"
+                            />
+                            {errors.emailid && touched.emailid ? (<div>{errors.emailid}</div>) : null}
+                        </Form.Group>
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Contact number</Form.Label>
-                        <input
-                            name="contactno"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.contactno}
-                            type="text"
-                            placeholder="Enter contact number "
-                        />
-                        {errors.contactno && touched.contactno ? (<div>{errors.contactno}</div>) : null}
-                    </Form.Group>
+                        <Form.Group className="edit-student-address-part" controlId="formBasicEmail">
+                            <Form.Label>Address</Form.Label>
+                            <input
+                                name="address"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.address}
+                                type="text"
+                                placeholder="Enter address(Full address) "
+                            />
+                            {errors.address && touched.address ? (<div>{errors.address}</div>) : null}
+                        </Form.Group>
 
-                    <Form.Group className="" controlId="formBasicEmail">
-                        <Form.Label>Religion</Form.Label>
-                        <input
-                            name="religion"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.religion}
-                            type="text"
-                            placeholder="Enter religion"
-                        />
-                        {errors.religion && touched.religion ? (<div>{errors.religion}</div>) : null}
-                    </Form.Group>
+                        <Form.Group className="edit-student-contactno-part" controlId="formBasicEmail">
+                            <Form.Label>Contact number</Form.Label>
+                            <input
+                                name="contactno"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.contactno}
+                                type="text"
+                                placeholder="Enter contact number "
+                            />
+                            {errors.contactno && touched.contactno ? (<div>{errors.contactno}</div>) : null}
+                        </Form.Group>
 
-                    <Button className="" variant="primary" type="submit">
-                        Add
-                    </Button>
+                        <Form.Group className="edit-student-religion-part" controlId="formBasicEmail">
+                            <Form.Label>Religion</Form.Label>
+                            <input
+                                name="religion"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.religion}
+                                type="text"
+                                placeholder="Enter religion"
+                            />
+                            {errors.religion && touched.religion ? (<div>{errors.religion}</div>) : null}
+                        </Form.Group>
+
+                        <Button className="edit-student-btn" variant="primary" type="submit">
+                            Add
+                        </Button>
+                    </Form>
                 </Card.Body>
             </Card>
         </div>

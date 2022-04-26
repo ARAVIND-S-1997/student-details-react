@@ -15,6 +15,8 @@ import { Classdetails } from "./components/classdetailsComponent";
 import { Addstudent } from "./components/addStudentComponent";
 import { IndividualStudentDetails } from "./components/individualStudentDetailComponent";
 import { EditStudentInfo } from "./components/editStudentInfoComponent"
+import { Addmarks } from "./components/addMarksComponent";
+
 // Root component
 function App() {
 
@@ -54,6 +56,9 @@ function App() {
         </Route>
         <Route exact path="/editstudent/:id">
           <EditStudentInfo />
+        </Route>
+        <Route exact path="/addmarks/:id">
+          <Addmarks/>
         </Route>
       </Switch>
     </>

@@ -13,12 +13,13 @@ import { useFormik } from 'formik';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authtoken } from "../authData"
+import { authtoken, authemail } from "../authData"
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
-// validationSchema for adding new student
+// validationSchema for editing new student
 const formValidation = yup.object({
     name: yup
         .string()
@@ -44,49 +45,63 @@ const formValidation = yup.object({
         .required("Religion  should not be empty ")
 })
 
-// adding new student function component
+// edit student function component
 export function EditStudentInfo() {
+
+    const history = useHistory();
 
     const { id } = useParams();
     console.log("Id is (edit student details)", id)
 
+    const [student, setstudent] = useState([]);
+    console.log(student.name);
+
+    // request to get the student
     const getstudentinfo = () => {
         const auth = {
-            token: authtoken
+            token: authtoken,
+            email: authemail
         }
         axios({ url: `${apiurl}/addstudent/getstudent/${id}`, method: "get", headers: auth })
             .then((response) => {
-                const finalData = response.data.students;
-                console.log("final data is", finalData);
-                finalData.map((value) => setstudent(value));
+                const finalData = response.data.find((value) => { return value._id.toString() === id.toString() });
+                setstudent(finalData)
             })
     }
-
-    const [student, setstudent] = useState([]);
-    console.log(student.name);
 
     useEffect(getstudentinfo, [id]);
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-
         initialValues: { name: student.name, dob: student.dob, emailid: student.emailid, address: student.address, contactno: student.contactno, religion: student.religion },
         enableReinitialize: true,
         validationSchema: formValidation,
-        onSubmit: (data) => console.log(data)
+        onSubmit: (data) => updateReq(data)
 
     })
 
-    //     const UpdateReq=()=>{
-    // axios({url:""})
-    //     }
+    // request to update the student
+    const updateReq = (datas) => {
+        const auth = {
+            token: authtoken,
+            email: authemail
+        }
+        axios({ url: `${apiurl}/addstudent/updatestudent/${id}`, method: "POST", headers: auth, data: datas })
+            .then((response) => {
+                try {
+                    if (response.status === 200) {
+                        history.push(`/studentinfo/${id}`)
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            })
+    }
 
     return (
         <div>
             <Card classname="">
                 <Card.Body>
-
-                    <Form className="edit-student-form">
-
+                    <Form onSubmit={handleSubmit} className="edit-student-form">
 
                         <Form.Group className="edit-student-name-part" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>

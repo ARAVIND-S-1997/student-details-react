@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { authtoken } from '../authData';
+import { authtoken,authemail } from '../authData';
 import { apiurl } from '../apiLink';
 import { useState, useEffect } from 'react';
 
@@ -23,7 +23,17 @@ export function Classdetails() {
         axios({ url: `${apiurl}/addstudent/getstudents/${id}`, method: "GET", headers: auth })
             .then((response) => setstudents(response.data.students));
     }
-    useEffect(getStudentsReq, [id])
+
+const deleteReq=(sub)=>{
+    const auth = {
+        token: authtoken,
+        emailid:authemail
+    }
+    axios({url: `${apiurl}/addstudent/deletestudent/${sub}`,method:"POST",headers:auth})
+    .then((response) => setstudents(response.data.students));
+}
+
+    useEffect(getStudentsReq, [])
     return (
         <div>
             <div className='classdetails-add-student-btn-div'>
@@ -44,7 +54,7 @@ export function Classdetails() {
                                 <td className='classdetails-content'>{name}
                                     <ButtonGroup>
                                         <Button onClick={()=>{history.push(`/studentinfo/${_id}`)}} variant="primary">More</Button>
-                                        <Button variant="danger">Delete</Button>
+                                        <Button onClick={()=>deleteReq(_id)} variant="danger">Delete</Button>
                                     </ButtonGroup>
                                 </td>
                             </tr> 

@@ -19,22 +19,21 @@ import { authemail, authtoken } from '../authData';
 // schema for creating classroom
 const createClassnameSchema = yup.object({
     classname: yup.string().required("Classname can't be empty "),
-    section: yup.string().required("Section can't be empty")
+    year: yup.number().required("Year can't be empty")
 })
 
 // create classroom component
 
 export function Createclassroom() {
 
-    const history=useHistory();
-    console.log(history)
+    const history = useHistory();
 
     const { values, handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
-        initialValues: { classname: "", section: "" },
+        initialValues: { classname: "", year: "" },
         validationSchema: createClassnameSchema,
         onSubmit: (data) => createclassroomReq(data)
     })
-
+console.log(values)
     // api request
     const createclassroomReq = (value) => {
         const auth = {
@@ -42,11 +41,11 @@ export function Createclassroom() {
             token: authtoken
         }
         axios({ url: `${apiurl}/home/createclassroom`, method: "POST", headers: auth, data: value })
-        .then((response)=>{
-            if(response.status===200){
-                history.push("/myclassroom");
-            }
-        })
+            .then((response) => {
+                if (response.status === 200) {
+                    history.push("/welcomedashboard");
+                }
+            })
     }
 
     return (
@@ -66,26 +65,26 @@ export function Createclassroom() {
                                 onBlur={handleBlur}
                                 value={values.classname}
                                 type="text"
-                                placeholder="Ex:Second grade"
+                                placeholder="Ex:Second grade A"
                             />
                             {errors.classname && touched.classname ? (<div>{errors.classname}</div>) : null}
                         </Form.Group>
 
-                        {/* section field */}
-                        <Form.Group className="create-section-part" controlId="formBasicEmail">
-                            <Form.Label> Section</Form.Label>
+                        {/* year field */}
+                        <Form.Group className="create-year-part" controlId="formBasicText">
+                            <Form.Label> Year</Form.Label>
                             <input
-                                name="section"
+                                name="year"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.section}
+                                value={values.year}
                                 type="text"
-                                placeholder="Ex:A or B etc"
+                                placeholder="Enter the year"
                             />
-                            {errors.section && touched.section ? (<div>{errors.section}</div>) : null}
+                            {errors.year && touched.year ? (<div>{errors.year}</div>) : null}
                         </Form.Group>
                         <Button className="changepassword-form-button" variant="primary" type="submit">
-                            Create
+                            Create classroom
                         </Button>
                     </Form>
                 </Card.Body>

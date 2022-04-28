@@ -17,7 +17,7 @@ export function NavBar() {
                     <Navbar.Collapse className="justify-content-end">
                         {(authtoken !== null) ?
                             <Navbar.Text>
-                                Signed in as: <a href="#login">{firstname}{lastname}</a>
+                                Signed in as: <a href="#login">{firstname} {lastname}</a>
                             </Navbar.Text> : <Navbar.Text>
 
                             </Navbar.Text>

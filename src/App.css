@@ -116,6 +116,12 @@
 
 /* my classroom */
 
+.myclassroom-welcome-msg{
+    margin-top: 10px;
+  margin-left: 25%;
+}
+
+
 .myclassroom-content-container-one {
     display: flex;
     flex-direction: row;
@@ -153,7 +159,7 @@
 }
 
 .create-classname-part,
-.create-section-part {
+.create-year-part {
     display: flex;
     flex-direction: column;
 }

@@ -18,7 +18,8 @@ export function Classdetails() {
     console.log("Students are:", students);
     const getStudentsReq = () => {
         const auth = {
-            token: authtoken
+            token: authtoken,
+        
         }
         axios({ url: `${apiurl}/addstudent/getstudents/${id}`, method: "GET", headers: auth })
             .then((response) => setstudents(response.data.students));
@@ -27,10 +28,11 @@ export function Classdetails() {
 const deleteReq=(sub)=>{
     const auth = {
         token: authtoken,
-        emailid:authemail
+        emailid:authemail,
+        classroomid:id
     }
     axios({url: `${apiurl}/addstudent/deletestudent/${sub}`,method:"POST",headers:auth})
-    .then((response) => setstudents(response.data.students));
+    // .then((response) => setstudents(response.data.students));
 }
 
     useEffect(getStudentsReq, [])

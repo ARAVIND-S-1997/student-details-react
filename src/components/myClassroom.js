@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { apiurl } from "../apiLink"
 import { authemail, authtoken, firstname } from "../authData"
 import Button from 'react-bootstrap/Button';
+import { ButtonGroup } from "react-bootstrap";
 
 export function Myclassroom() {
     const [classroom, setclassroom] = useState([]);
@@ -16,11 +17,25 @@ export function Myclassroom() {
             emailid: authemail,
             token: authtoken
         }
-        console.log(auth)
         axios({ url: `${apiurl}/home/myclassroom`, method: "GET", headers: auth })
             .then((response) => setclassroom(response.data.getRequest));
     }
     useEffect(myclassroomReq, []);
+
+    const deleteclassroom = (sub) => {
+        const auth = {
+            emailid: authemail,
+            token: authtoken
+        }
+        axios({ url: `${apiurl}/home/deleteclassroom/${sub}`, method: "POST", headers: auth })
+            .then((response) => {
+                if (response.status === 200) {
+                    setclassroom(response.data);
+                }
+            })
+
+    }
+
     return (
         <div className="myclassroom-main-container">
             {
@@ -32,7 +47,10 @@ export function Myclassroom() {
                             <div className="myclassroom-content-container-two">
                                 <h6>Class:{classname}</h6>
                                 <h6>Year:{year}</h6>
-                                <Button onClick={() => { history.push(`/classdetails/${_id}`) }} variant="light" size="sm">open</Button>
+                                <ButtonGroup>
+                                    <Button onClick={() => { history.push(`/classdetails/${_id}`) }} variant="light" size="sm">open</Button>
+                                    <Button onClick={() => deleteclassroom(_id)} variant="light" size="sm">Delete</Button>
+                                </ButtonGroup>
                             </div>
                         </div>
                     ))

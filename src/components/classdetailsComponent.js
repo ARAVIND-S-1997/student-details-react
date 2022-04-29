@@ -26,13 +26,14 @@ export function Classdetails() {
     }
 
 const deleteReq=(sub)=>{
+    console.log(sub)
     const auth = {
         token: authtoken,
         emailid:authemail,
         classroomid:id
     }
     axios({url: `${apiurl}/addstudent/deletestudent/${sub}`,method:"POST",headers:auth})
-    // .then((response) => setstudents(response.data.students));
+    .then((response) => setstudents(response.data.students));
 }
 
     useEffect(getStudentsReq, [])
@@ -51,7 +52,7 @@ const deleteReq=(sub)=>{
                             </tr>
                         </thead>
                         <tbody>
-                {students.map(({ name,_id }) => (
+                            {(students!==null)?  students.map(({ name,_id }) => (
                             <tr>
                                 <td className='classdetails-content'>{name}
                                     <ButtonGroup>
@@ -60,7 +61,8 @@ const deleteReq=(sub)=>{
                                     </ButtonGroup>
                                 </td>
                             </tr> 
-                ))}
+                )):null}
+              
                   </tbody>
                   </Table>
             </div>

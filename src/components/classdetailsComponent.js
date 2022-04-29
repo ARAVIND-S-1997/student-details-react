@@ -52,7 +52,7 @@ const deleteReq=(sub)=>{
                             </tr>
                         </thead>
                         <tbody>
-                            {(students!==null)?  students.map(({ name,_id }) => (
+                            {(students!==undefined)?  students.map(({ name,_id }) => (
                             <tr>
                                 <td className='classdetails-content'>{name}
                                     <ButtonGroup>

@@ -17,6 +17,8 @@ import { IndividualStudentDetails } from "./components/individualStudentDetailCo
 import { EditStudentInfo } from "./components/editStudentInfoComponent"
 import { Addmarks } from "./components/addMarksComponent";
 import { Userdetails } from "./components/userdetailsComponent";
+import { Edituserdetails } from "./components/edituserdetailsComponent";
+
 // Root component
 function App() {
 
@@ -58,10 +60,13 @@ function App() {
           <EditStudentInfo />
         </Route>
         <Route exact path="/addmarks/:id">
-          <Addmarks/>
+          <Addmarks />
         </Route>
         <Route exact path="/userdetails">
-          <Userdetails/>
+          <Userdetails />
+        </Route>
+        <Route exact path="/edituserdetails/:id">
+          <Edituserdetails />
         </Route>
       </Switch>
     </>

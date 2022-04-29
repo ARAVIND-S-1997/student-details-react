@@ -4,6 +4,10 @@
     height: 80px;
 }
 
+.nav-bar-btn-comb{
+    display: flex;
+}
+
 /* login part */
 
 .login-form-card {

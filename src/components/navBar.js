@@ -13,23 +13,30 @@ export function NavBar() {
     return (
         <div>
             {/* nav bar container */}
-            <Navbar className="navbar">
+
+            {(authtoken !== null) ?
+            <Navbar  className="navbar">
                 <Container>
-                    <Navbar.Brand href="#home">Student details </Navbar.Brand>
+                    <Navbar.Brand href="/welcomedashboard" >Student details </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        {(authtoken !== null) ?
                             <div className='nav-bar-btn-comb'>
-                                <Button onClick={()=>history.push("/welcomedashboard")} variant="secondary">Home</Button>
                                 <Navbar.Text>
                                     Signed in as: <a href="/userdetails">{firstname} {lastname}</a>
                                 </Navbar.Text>
+                                <Button onClick={()=>{
+                                    localStorage.clear()
+                                    .then(()=> history.push("/"))
+                                    }} variant="secondary">Logout</Button>
                             </div>
-                            : null
-                        }
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar>:
+            <Navbar className="navbar">
+                <Container>
+                    <Navbar.Brand >Student details </Navbar.Brand>
+                </Container>
+            </Navbar>}
         </div>
     )
 }

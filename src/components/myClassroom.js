@@ -39,21 +39,20 @@ export function Myclassroom() {
     return (
         <div className="myclassroom-main-container">
             {
-                (classroom === null) ?
-                    <h1 className="myclassroom-welcome-msg" >Hai welcome {firstname},Create you classrooms</h1> :
-                    classroom.map(({ _id, classname, year }) => (
-                        <div className="myclassroom-content-container-one">
-                            <img src={require("./images/classroomImage.png")} alt="classroom logo" />
-                            <div className="myclassroom-content-container-two">
-                                <h6>Class:{classname}</h6>
-                                <h6>Year:{year}</h6>
-                                <ButtonGroup>
-                                    <Button onClick={() => { history.push(`/classdetails/${_id}`) }} variant="light" size="sm">open</Button>
-                                    <Button onClick={() => deleteclassroom(_id)} variant="light" size="sm">Delete</Button>
-                                </ButtonGroup>
-                            </div>
+                (classroom !== undefined) ? classroom.map(({ _id, classname, year }) => (
+                    <div className="myclassroom-content-container-one">
+                        <img src={require("./images/classroomImage.png")} alt="classroom logo" />
+                        <div className="myclassroom-content-container-two">
+                            <h6>Class:{classname}</h6>
+                            <h6>Year:{year}</h6>
+                            <ButtonGroup>
+                                <Button onClick={() => { history.push(`/classdetails/${_id}`) }} variant="light" size="sm">open</Button>
+                                <Button onClick={() => deleteclassroom(_id)} variant="light" size="sm">Delete</Button>
+                            </ButtonGroup>
                         </div>
-                    ))
+                    </div>
+                )) : <h1 className="myclassroom-welcome-msg" >Hai welcome {firstname},Create you classrooms</h1>
+
             }
         </div >
     )

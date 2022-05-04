@@ -1,5 +1,7 @@
 //  react bootstrap imports
+import { useEffect } from 'react';
 import { Nav } from 'react-bootstrap'
+import { useParams } from 'react-router-dom';
 
 // hooks imports
 import { useHistory } from 'react-router-dom'
@@ -11,11 +13,13 @@ import { Myclassroom } from './myClassroom';
 // welcome dashboard component
 export function Welcomedashboard() {
     const history = useHistory();
+    // const{id}=useParams();
+    // useEffect([id]);
     return (
         <div>
             {/* content container */}
                 <div>
-                {(authtoken !== undefined) ?
+                {(authtoken !== null) ?
                     <div>
                         <Nav variant="tabs" defaultActiveKey="/home">
                             <Nav.Item>

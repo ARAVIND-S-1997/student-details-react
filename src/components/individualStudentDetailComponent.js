@@ -14,7 +14,13 @@ export function IndividualStudentDetails() {
     console.log(id);
 
     const history = useHistory();
+
     const [student, setstudent] = useState([]);
+    console.log(student);
+
+    const { marks } = student;
+    console.log(marks);
+
     const _id = student._id
     console.log("Id is ", _id)
 
@@ -49,20 +55,42 @@ export function IndividualStudentDetails() {
     return (
         <div>
             <div>
-            <Card className="indiv-stud-card">
-                <Card.Body>
-                    <h1>Basic info:</h1>
-                    <h4>Name:{student.name}</h4>
-                    <h4>Date of birth:{student.dob}</h4>
-                    <h4>Email id:{student.emailid}</h4>
-                    <h4>Address:{student.address}</h4>
-                    <h4>Contact number:{student.contactno}</h4>
-                    <h4>Religion:{student.religion}</h4>
+                <Card className="indiv-stud-card">
+                    <Card.Body>
+                        <h1>Basic info:</h1>
+                        <h4>Name:{student.name}</h4>
+                        <h4>Date of birth:{student.dob}</h4>
+                        <h4>Email id:{student.emailid}</h4>
+                        <h4>Address:{student.address}</h4>
+                        <h4>Contact number:{student.contactno}</h4>
+                        <h4>Religion:{student.religion}</h4>
                         <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
                     </Card.Body>
-            </Card>
+                </Card>
             </div>
-            <Button onClick={()=>{history.push(`/addmarks/${_id}`)}}  variant="primary">Add marks</Button>
+            <div>
+                <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="primary">Add marks</Button>
+            </div>
+            <div>
+                {marks.map(({ month, tamil, english, maths, science, social, total }) => {
+                    return (
+                        <div>
+                            <Card className="indiv-stud-card">
+                                <Card.Body>
+                                    <h1>Month:{month}</h1>
+                                    <h3>Tamil:{tamil}</h3>
+                                    <h3>English:{english}</h3>
+                                    <h3>Maths:{maths}</h3>
+                                    <h3>Science:{science}</h3>
+                                    <h3>Social:{social}</h3>
+                                    <h3>Total:{total}</h3>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    )
+                })}
+            </div>
+
         </div>
     )
 }

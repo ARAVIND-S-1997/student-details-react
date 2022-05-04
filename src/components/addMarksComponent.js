@@ -10,11 +10,14 @@ import axios from 'axios';
 // hooks imports
 import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useParams } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
+import { authemail, authtoken } from '../authData.js';
 
 const formValidation = yup.object({
+    month: yup.string().required("Month should not be empty"),
     tamil: yup.number().required("Only number should entered"),
     english: yup.number().required("Only number should entered"),
     maths: yup.number().required("Only number should entered"),
@@ -25,17 +28,47 @@ const formValidation = yup.object({
 
 export function Addmarks() {
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
-        initialValues: { tamil: "", english: "", maths: "", science: "", social: "", total: "" },
+        initialValues: { month: "", tamil: "", english: "", maths: "", science: "", social: "", total: "" },
         validationSchema: formValidation,
-        onSubmit: (data) => console.log(data)
+        onSubmit: (data) => addmarksReq(data)
     });
     const history = useHistory();
+    const { id } = useParams();
+
+    const addmarksReq = (dataa) => {
+        const auth = {
+            token: authtoken,
+            email: authemail
+        }
+        axios({ url: `${apiurl}/addstudent/addmarks/${id}`, method: "POST", headers: auth, data: dataa })
+            .then((response) => {
+                if (response.status === 200) {
+                    history.push(`/studentinfo/${id}`);
+                }
+            })
+    }
 
     return (
         <div className="">
             <Card classname="">
                 <Card.Body>
                     <Form onSubmit={handleSubmit} className="">
+
+                        <Form.Group className="" controlId="formBasicMonth">
+
+                            <Form.Label>Month</Form.Label>
+                            <input
+                                name="month"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.month}
+                                type="text"
+                                placeholder="Enter the month"
+                            />
+                            {errors.month && touched.month ? (<div>{errors.month}</div>) : null}
+                        </Form.Group>
+
+
                         <Form.Group className="" controlId="formBasicEmail">
 
                             <Form.Label>Tamil</Form.Label>

@@ -49,12 +49,12 @@ export function Addmarks() {
     }
 
     return (
-        <div className="">
-            <Card classname="">
+        <div className="addmarks-main-container">
+            <Card classname="addmarks-container-card">
                 <Card.Body>
-                    <Form onSubmit={handleSubmit} className="">
+                    <Form onSubmit={handleSubmit} className="addmarks-form">
 
-                        <Form.Group className="" controlId="formBasicMonth">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicMonth">
 
                             <Form.Label>Month</Form.Label>
                             <input
@@ -69,7 +69,7 @@ export function Addmarks() {
                         </Form.Group>
 
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
 
                             <Form.Label>Tamil</Form.Label>
                             <input
@@ -83,7 +83,7 @@ export function Addmarks() {
                             {errors.tamil && touched.tamil ? (<div>{errors.tamil}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>English</Form.Label>
                             <input
                                 name="english"
@@ -96,7 +96,7 @@ export function Addmarks() {
                             {errors.english && touched.english ? (<div>{errors.english}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Maths </Form.Label>
                             <input
                                 name="maths"
@@ -109,7 +109,7 @@ export function Addmarks() {
                             {errors.maths && touched.maths ? (<div>{errors.maths}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Science</Form.Label>
                             <input
                                 name="science"
@@ -122,7 +122,7 @@ export function Addmarks() {
                             {errors.science && touched.science ? (<div>{errors.science}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Social</Form.Label>
                             <input
                                 name="social"
@@ -135,7 +135,7 @@ export function Addmarks() {
                             {errors.social && touched.social ? (<div>{errors.social}</div>) : null}
                         </Form.Group>
 
-                        <Form.Group className="" controlId="formBasicEmail">
+                        <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Total</Form.Label>
                             <input
                                 name="total"
@@ -148,7 +148,7 @@ export function Addmarks() {
                             {errors.total && touched.total ? (<div>{errors.total}</div>) : null}
                         </Form.Group>
 
-                        <Button className="" variant="primary" type="submit">
+                        <Button className="addmarks-btn" variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>

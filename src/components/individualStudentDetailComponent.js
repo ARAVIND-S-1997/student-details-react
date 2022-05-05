@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 
 // import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { ButtonGroup } from "react-bootstrap";
 
 export function IndividualStudentDetails() {
     const { id } = useParams();
@@ -64,18 +65,20 @@ export function IndividualStudentDetails() {
                         <h4>Address:{student.address}</h4>
                         <h4>Contact number:{student.contactno}</h4>
                         <h4>Religion:{student.religion}</h4>
+                        <ButtonGroup>
                         <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
+                        <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="secondary">Add marks</Button>
+                        </ButtonGroup>
+                        
                     </Card.Body>
                 </Card>
             </div>
+
             <div>
-                <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="primary">Add marks</Button>
-            </div>
-            <div>
-                {marks.map(({ month, tamil, english, maths, science, social, total }) => {
+                {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total,_id }) => {
                     return (
                         <div>
-                            <Card className="indiv-stud-card">
+                            <Card className="indiv-stud-marks-card">
                                 <Card.Body>
                                     <h1>Month:{month}</h1>
                                     <h3>Tamil:{tamil}</h3>
@@ -84,11 +87,15 @@ export function IndividualStudentDetails() {
                                     <h3>Science:{science}</h3>
                                     <h3>Social:{social}</h3>
                                     <h3>Total:{total}</h3>
+                                    <ButtonGroup>
+                                        <Button onClick={()=>{history.push(`editmarks/${_id}`)}} variant="primary">Edit</Button>
+                                        <Button  variant="danger">Delete</Button>
+                                    </ButtonGroup>
                                 </Card.Body>
                             </Card>
                         </div>
                     )
-                })}
+                }) : null}
             </div>
 
         </div>

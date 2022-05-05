@@ -48,7 +48,8 @@ export function Login() {
                         localStorage.setItem("emailid", emailid);
                         localStorage.setItem("firstname",firstname);
                         localStorage.setItem("lastname",lastname);
-                        history.push(`/welcomedashboard/${response.data._id}`);
+                        // history.push(`/welcomedashboard/${response.data._id}`);
+                        history.push(`/welcomedashboard`)
                     } catch (errors) {
                         console.log("Error is:", errors)
                     }

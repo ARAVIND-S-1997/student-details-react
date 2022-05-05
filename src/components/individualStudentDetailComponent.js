@@ -35,11 +35,11 @@ export function IndividualStudentDetails() {
     console.log("Id is ", _id)
 
 
-// indivdual student req
+    // indivdual student req
     const getIndividualStudentReq = () => {
         const auth = {
             token: authtoken,
-            email: authemail
+            email: authemail,
         }
         axios({ url: `${apiurl}/addstudent/getstudent/${id}`, method: "get", headers: auth })
             .then((response) => {
@@ -48,6 +48,23 @@ export function IndividualStudentDetails() {
                 setstudent(finalData)
             })
     }
+
+    const deletemarks = (value) => {
+
+        console.log(value)
+        const auth = {
+            token: authtoken,
+            emailid: authemail,
+            student_id: id
+        }
+        axios({ url: `${apiurl}/addstudent/deletemarks/${value}`, method: "post", headers: auth })
+            .then((response) => {
+                console.log(response)
+                const finalData = response.data.find((value) => { return value._id.toString() === id.toString() });
+                setstudent(finalData)
+            })
+    }
+
 
     useEffect(getIndividualStudentReq, [id]);
 
@@ -64,16 +81,16 @@ export function IndividualStudentDetails() {
                         <h4>Contact number:{student.contactno}</h4>
                         <h4>Religion:{student.religion}</h4>
                         <ButtonGroup>
-                        <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
-                        <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="secondary">Add marks</Button>
+                            <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
+                            <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="secondary">Add marks</Button>
                         </ButtonGroup>
-                        
+
                     </Card.Body>
                 </Card>
             </div>
 
             <div>
-                {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total,_id }) => {
+                {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
                     return (
                         <div>
                             <Card className="indiv-stud-marks-card">
@@ -86,8 +103,8 @@ export function IndividualStudentDetails() {
                                     <h3>Social:{social}</h3>
                                     <h3>Total:{total}</h3>
                                     <ButtonGroup>
-                                        <Button onClick={()=>{history.push(`editmarks/${_id}`)}} variant="primary">Edit</Button>
-                                        <Button  variant="danger">Delete</Button>
+                                        <Button onClick={() => { history.push(`editmarks/${_id}`) }} variant="primary">Edit</Button>
+                                        <Button onClick={() => deletemarks(_id)} variant="danger">Delete</Button>
                                     </ButtonGroup>
                                 </Card.Body>
                             </Card>

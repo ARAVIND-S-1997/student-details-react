@@ -28,7 +28,7 @@ export function Myclassroom() {
         axios({ url: `${apiurl}/home/myclassroom`, method: "GET", headers: auth })
             .then((response) => setclassroom(response.data.getRequest));
     }
-    useEffect(myclassroomReq, []);
+    
 
     // delete classroom req
     const deleteclassroom = (sub) => {
@@ -44,14 +44,15 @@ export function Myclassroom() {
             })
 
     }
-
+    
+    useEffect(myclassroomReq, [classroom]);
     return (
         <div className="myclassroom-main-container">
             {
                 (classroom !== undefined) ? classroom.map(({ _id, classname, year }) => (
                     <div className="myclassroom-content-container-one">
                         <img src={require("./images/classroomImage.png")} alt="classroom logo" />
-                        <div className="myclassroom-content-container-two">
+                        <div key={_id} className="myclassroom-content-container-two">
                             <h6>Class:{classname}</h6>
                             <h6>Year:{year}</h6>
                             <ButtonGroup>

@@ -62,7 +62,7 @@ export function Signup() {
             axios({ url: `${apiurl}/user/signup`, method: "POST", data: values })
                 .then((response) => {
                     if (response.status === 200) {
-                        history.push("/");
+                        history.push("/login");
                     }
                 })
         }

@@ -10,7 +10,7 @@ import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 
 // other file imports
-import { authtoken, authemail } from "../authData"
+import { authtoken, authemail } from './welcomeDashboard.js';
 import { apiurl } from "../apiLink"
 
 // user detail component

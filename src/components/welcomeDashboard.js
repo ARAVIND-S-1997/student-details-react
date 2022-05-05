@@ -1,5 +1,5 @@
 //  react bootstrap imports
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Nav } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 
@@ -7,14 +7,22 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
 
 // other file imports
-import { authtoken} from '../authData'
+
 import { Myclassroom } from './myClassroom';
+
+
+export const authtoken = localStorage.getItem("token");
+export const authemail = localStorage.getItem("emailid");
+export const firstname=localStorage.getItem("firstname");
+export const lastname=localStorage.getItem("lastname");
+console.log(authtoken, authemail,firstname,lastname);
+
+
 
 // welcome dashboard component
 export function Welcomedashboard() {
     const history = useHistory();
-    // const{id}=useParams();
-    // useEffect([id]);
+ 
     return (
         <div>
             {/* content container */}
@@ -29,6 +37,7 @@ export function Welcomedashboard() {
                                 <Nav.Link onClick={() => { history.push("/createclassroom") }}>Create Classroom</Nav.Link>
                             </Nav.Item>
                         </Nav>
+                        <h2 className='welcomdashboard-title' >Clasrooms are:</h2>
                         <Myclassroom/>
                     </div> : null}
                 </div>

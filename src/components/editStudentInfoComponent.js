@@ -13,7 +13,7 @@ import { useFormik } from 'formik';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authtoken, authemail } from "../authData"
+import { authtoken, authemail } from './welcomeDashboard.js';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';

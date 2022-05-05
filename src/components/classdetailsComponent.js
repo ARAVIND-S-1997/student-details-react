@@ -7,7 +7,7 @@ import { ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 // other file imports
-import { authtoken, authemail } from '../authData';
+import { authtoken, authemail } from './welcomeDashboard.js';
 import { apiurl } from '../apiLink';
 
 // hooks imports

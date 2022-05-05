@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom"
 
 // other file imports
-import { authtoken, authemail } from "../authData";
+import { authtoken, authemail } from './welcomeDashboard.js';
 import { apiurl } from "../apiLink";
 
 
@@ -49,8 +49,8 @@ export function IndividualStudentDetails() {
             })
     }
 
+    // delete marks req
     const deletemarks = (value) => {
-
         console.log(value)
         const auth = {
             token: authtoken,
@@ -71,9 +71,9 @@ export function IndividualStudentDetails() {
     return (
         <div>
             <div>
-                <Card className="indiv-stud-card">
+                <h1 className="indiv-stud-titles">Student Information:</h1>
+                <Card className="indiv-stud-info-card">
                     <Card.Body>
-                        <h1>Basic info:</h1>
                         <h4>Name:{student.name}</h4>
                         <h4>Date of birth:{student.dob}</h4>
                         <h4>Email id:{student.emailid}</h4>
@@ -93,15 +93,16 @@ export function IndividualStudentDetails() {
                 {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
                     return (
                         <div>
+                            <h1 className="indiv-stud-titles">Mark details:</h1>
                             <Card className="indiv-stud-marks-card">
                                 <Card.Body>
-                                    <h1>Month:{month}</h1>
-                                    <h3>Tamil:{tamil}</h3>
-                                    <h3>English:{english}</h3>
-                                    <h3>Maths:{maths}</h3>
-                                    <h3>Science:{science}</h3>
-                                    <h3>Social:{social}</h3>
-                                    <h3>Total:{total}</h3>
+                                    <h2>Month:{month}</h2>
+                                    <h4>Tamil:{tamil}</h4>
+                                    <h4>English:{english}</h4>
+                                    <h4>Maths:{maths}</h4>
+                                    <h4>Science:{science}</h4>
+                                    <h4>Social:{social}</h4>
+                                    <h4>Total:{total}</h4>
                                     <ButtonGroup>
                                         <Button onClick={() => { history.push(`editmarks/${_id}`) }} variant="primary">Edit</Button>
                                         <Button onClick={() => deletemarks(_id)} variant="danger">Delete</Button>
@@ -116,3 +117,7 @@ export function IndividualStudentDetails() {
         </div>
     )
 }
+
+
+
+

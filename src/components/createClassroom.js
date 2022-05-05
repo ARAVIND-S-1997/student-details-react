@@ -13,7 +13,7 @@ import { useHistory } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authemail, authtoken } from '../authData';
+import { authemail, authtoken } from './welcomeDashboard.js';
 
 
 // schema for creating classroom

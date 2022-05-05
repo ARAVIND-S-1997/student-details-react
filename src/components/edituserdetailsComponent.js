@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
-import { authtoken, authemail } from "../authData"
+import { authtoken, authemail } from './welcomeDashboard.js';
 import { useParams } from 'react-router-dom';
 
 // validation schema

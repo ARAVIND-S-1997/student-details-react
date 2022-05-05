@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 
 // other file imports
 import { apiurl } from "../apiLink"
-import { authemail, authtoken, firstname } from "../authData"
+import { authemail, authtoken, firstname } from './welcomeDashboard.js';
 
 
 // my classroom req

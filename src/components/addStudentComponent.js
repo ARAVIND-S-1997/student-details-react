@@ -13,7 +13,7 @@ import { useFormik } from 'formik';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authemail, authtoken } from "../authData"
+import { authemail, authtoken } from './welcomeDashboard.js';
 import { useParams, useHistory } from 'react-router-dom';
 
 // validationSchema for adding new student

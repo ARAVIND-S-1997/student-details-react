@@ -1,12 +1,20 @@
-import axios from "axios"
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-
-import { apiurl } from "../apiLink"
-import { authemail, authtoken, firstname } from "../authData"
+// react bootstrap imports
 import Button from 'react-bootstrap/Button';
 import { ButtonGroup } from "react-bootstrap";
 
+// other packages imports
+import axios from "axios"
+
+// other packages imports
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+// other file imports
+import { apiurl } from "../apiLink"
+import { authemail, authtoken, firstname } from "../authData"
+
+
+// my classroom req
 export function Myclassroom() {
     const [classroom, setclassroom] = useState([]);
     console.log("classrooms are:", classroom);
@@ -22,6 +30,7 @@ export function Myclassroom() {
     }
     useEffect(myclassroomReq, []);
 
+    // delete classroom req
     const deleteclassroom = (sub) => {
         const auth = {
             emailid: authemail,

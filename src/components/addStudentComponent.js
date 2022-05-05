@@ -51,6 +51,8 @@ export function Addstudent() {
     })
     const history = useHistory();
     const { id } = useParams();
+
+    // req for add students
     const addstudentReq = (value) => {
 
         const auth = {
@@ -64,10 +66,10 @@ export function Addstudent() {
                     if (response.status == 200) {
                         history.push(`/classdetails/${id}`)
                     }
-                }catch(error){
+                } catch (error) {
                     console.log(error)
                 }
-        })
+            })
     }
     return (
         <div classname="add-student-main-container">
@@ -75,6 +77,7 @@ export function Addstudent() {
                 <Card.Body >
                     <Form onSubmit={handleSubmit} className="add-student-form">
 
+                        {/* Name field */}
                         <Form.Group className="add-student-name-part" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
                             <input
@@ -88,6 +91,7 @@ export function Addstudent() {
                             {errors.name && touched.name ? (<div>{errors.name}</div>) : null}
                         </Form.Group>
 
+                        {/* date of birth field */}
                         <Form.Group className="add-student-dob-part" controlId="formBasicEmail">
                             <Form.Label>Date of birth</Form.Label>
                             <input
@@ -101,6 +105,7 @@ export function Addstudent() {
                             {errors.dob && touched.dob ? (<div>{errors.dob}</div>) : null}
                         </Form.Group>
 
+                        {/* email id field */}
                         <Form.Group className="add-student-email-part" controlId="formBasicEmail">
                             <Form.Label>Email id</Form.Label>
                             <input
@@ -114,6 +119,7 @@ export function Addstudent() {
                             {errors.emailid && touched.emailid ? (<div>{errors.emailid}</div>) : null}
                         </Form.Group>
 
+                        {/* address field */}
                         <Form.Group className="add-student-address-part" controlId="formBasicEmail">
                             <Form.Label>Address</Form.Label>
                             <input
@@ -127,6 +133,7 @@ export function Addstudent() {
                             {errors.address && touched.address ? (<div>{errors.address}</div>) : null}
                         </Form.Group>
 
+                        {/* contact number field */}
                         <Form.Group className="add-student-contactno-part" controlId="formBasicEmail">
                             <Form.Label>Contact number</Form.Label>
                             <input
@@ -140,6 +147,7 @@ export function Addstudent() {
                             {errors.contactno && touched.contactno ? (<div>{errors.contactno}</div>) : null}
                         </Form.Group>
 
+                        {/* religion field */}
                         <Form.Group className="add-student-religion-part" controlId="formBasicEmail">
                             <Form.Label>Religion</Form.Label>
                             <input

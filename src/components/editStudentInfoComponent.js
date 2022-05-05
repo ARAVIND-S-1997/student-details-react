@@ -104,6 +104,8 @@ export function EditStudentInfo() {
                     <Form onSubmit={handleSubmit} className="edit-student-form">
 
                         <Form.Group className="edit-student-name-part" controlId="formBasicEmail">
+
+                            {/* name field */}
                             <Form.Label>Name</Form.Label>
                             <input
                                 name="name"
@@ -117,6 +119,8 @@ export function EditStudentInfo() {
                         </Form.Group>
 
                         <Form.Group className="edit-student-dob-part" controlId="formBasicEmail">
+                            
+                            {/* date of birth field */}
                             <Form.Label>Date of birth</Form.Label>
                             <input
                                 name="dob"
@@ -130,6 +134,8 @@ export function EditStudentInfo() {
                         </Form.Group>
 
                         <Form.Group className="edit-student-email-part" controlId="formBasicEmail">
+
+                            {/* email field */}
                             <Form.Label>Email id</Form.Label>
                             <input
                                 name="emailid"
@@ -143,6 +149,8 @@ export function EditStudentInfo() {
                         </Form.Group>
 
                         <Form.Group className="edit-student-address-part" controlId="formBasicEmail">
+
+                            {/* address field */}
                             <Form.Label>Address</Form.Label>
                             <input
                                 name="address"
@@ -156,6 +164,8 @@ export function EditStudentInfo() {
                         </Form.Group>
 
                         <Form.Group className="edit-student-contactno-part" controlId="formBasicEmail">
+
+                            {/* contact number */}
                             <Form.Label>Contact number</Form.Label>
                             <input
                                 name="contactno"
@@ -169,6 +179,8 @@ export function EditStudentInfo() {
                         </Form.Group>
 
                         <Form.Group className="edit-student-religion-part" controlId="formBasicEmail">
+                            
+                            {/* religion field */}
                             <Form.Label>Religion</Form.Label>
                             <input
                                 name="religion"

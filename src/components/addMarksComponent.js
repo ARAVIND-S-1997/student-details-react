@@ -16,6 +16,8 @@ import { useParams } from 'react-router-dom';
 import { apiurl } from '../apiLink.js';
 import { authemail, authtoken } from '../authData.js';
 
+
+// validation
 const formValidation = yup.object({
     month: yup.string().required("Month should not be empty"),
     tamil: yup.number().required("Only number should entered"),
@@ -26,6 +28,8 @@ const formValidation = yup.object({
     total: yup.number().required("Only number should entered"),
 })
 
+
+// add marks component
 export function Addmarks() {
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
         initialValues: { month: "", tamil: "", english: "", maths: "", science: "", social: "", total: "" },
@@ -35,6 +39,8 @@ export function Addmarks() {
     const history = useHistory();
     const { id } = useParams();
 
+
+    // addmarks req function
     const addmarksReq = (dataa) => {
         const auth = {
             token: authtoken,
@@ -54,8 +60,8 @@ export function Addmarks() {
                 <Card.Body>
                     <Form onSubmit={handleSubmit} className="addmarks-form">
 
+                        {/* month field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicMonth">
-
                             <Form.Label>Month</Form.Label>
                             <input
                                 name="month"
@@ -68,9 +74,8 @@ export function Addmarks() {
                             {errors.month && touched.month ? (<div>{errors.month}</div>) : null}
                         </Form.Group>
 
-
+                        {/* language tamil field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
-
                             <Form.Label>Tamil</Form.Label>
                             <input
                                 name="tamil"
@@ -83,6 +88,7 @@ export function Addmarks() {
                             {errors.tamil && touched.tamil ? (<div>{errors.tamil}</div>) : null}
                         </Form.Group>
 
+                        {/* language english field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>English</Form.Label>
                             <input
@@ -96,6 +102,7 @@ export function Addmarks() {
                             {errors.english && touched.english ? (<div>{errors.english}</div>) : null}
                         </Form.Group>
 
+                        {/* maths field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Maths </Form.Label>
                             <input
@@ -109,6 +116,7 @@ export function Addmarks() {
                             {errors.maths && touched.maths ? (<div>{errors.maths}</div>) : null}
                         </Form.Group>
 
+                        {/*  science field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Science</Form.Label>
                             <input
@@ -122,6 +130,7 @@ export function Addmarks() {
                             {errors.science && touched.science ? (<div>{errors.science}</div>) : null}
                         </Form.Group>
 
+                        {/*  social field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Social</Form.Label>
                             <input
@@ -135,6 +144,7 @@ export function Addmarks() {
                             {errors.social && touched.social ? (<div>{errors.social}</div>) : null}
                         </Form.Group>
 
+                        {/* total field */}
                         <Form.Group className="addmarks-form-field" controlId="formBasicEmail">
                             <Form.Label>Total</Form.Label>
                             <input

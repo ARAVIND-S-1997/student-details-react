@@ -1,9 +1,18 @@
-import { useParams, useHistory } from "react-router-dom"
+// react bootstrap imports
+import Card from 'react-bootstrap/Card';
+
+// other packages imports
 import axios from "axios";
+
+// hooks imports
+import { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom"
+
+// other file imports
 import { authtoken, authemail } from "../authData";
 import { apiurl } from "../apiLink";
-import { useState, useEffect } from "react";
-import Card from 'react-bootstrap/Card';
+
+
 
 
 // import { ButtonGroup } from 'react-bootstrap';
@@ -25,19 +34,8 @@ export function IndividualStudentDetails() {
     const _id = student._id
     console.log("Id is ", _id)
 
-    // const dateofbirth=student.dob;
 
-    // function reverseDob(date){
-    //     const splitData=date.split("");
-    //     console.log(splitData);
-    //     const reverseData=splitData.reverse();
-    //     console.log(reverseData);
-    //     const joinData=reverseData.join("");
-    //     console.log(joinData);
-    //     return joinData
-
-    // }
-
+// indivdual student req
     const getIndividualStudentReq = () => {
         const auth = {
             token: authtoken,

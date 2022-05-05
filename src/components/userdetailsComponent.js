@@ -1,18 +1,26 @@
-import axios from "axios"
-import { authtoken, authemail } from "../authData"
-import { apiurl } from "../apiLink"
-import { useState, useEffect } from "react"
+// react bootstrap imports
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+
+// other packages imports
+import axios from "axios"
+
+// hooks imports
+import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 
+// other file imports
+import { authtoken, authemail } from "../authData"
+import { apiurl } from "../apiLink"
 
+// user detail component
 export function Userdetails() {
 const history=useHistory();
     const [userdetails, setuserdetails] = useState([]);
     console.log(userdetails);
-    const userdetailReq = () => {
 
+    // api req
+    const userdetailReq = () => {
         const auth = {
             token: authtoken,
             emailid: authemail

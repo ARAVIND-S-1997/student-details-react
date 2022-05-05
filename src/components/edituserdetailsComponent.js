@@ -38,13 +38,15 @@ const formValidation = yup.object({
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
 })
 
+// edit user detail component
 export function Edituserdetails() {
     const history = useHistory();
     const{id}=useParams
     const [userdetails, setuserdetails] = useState([]);
     console.log(userdetails);
-    const userdetailReq = () => {
 
+    // get user api req
+    const userdetailReq = () => {
         const auth = {
             token: authtoken,
             emailid: authemail
@@ -61,6 +63,7 @@ export function Edituserdetails() {
         onSubmit: (data) => updateReq(data)
     })
 
+    // update user api req
     const updateReq = (datas) => {
         const auth = {
             token: authtoken,

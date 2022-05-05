@@ -51,7 +51,7 @@ export function Changepassword() {
             <Card classname="changepassword-form-card">
                 <Card.Body>
                     <Form onSubmit={handleSubmit} className="changepassword-form">
-                        <Form.Group className="changepassword-password-part" controlId="formBasicEmail">
+                        <Form.Group className="changepassword-password-part" controlId="formBasicPassword">
 
                             {/* password field */}
                             <Form.Label>New password</Form.Label>
@@ -64,8 +64,9 @@ export function Changepassword() {
                                 placeholder="New password"
                             />
                             {errors.newPassword && touched.newPassword ? (<div>{errors.newPassword}</div>) : null}
-
-
+                            </Form.Group>
+                            
+                            <Form.Group className="changepassword-password-part" controlId="formBasicPassword">
                             {/* confirm password field */}
                             <Form.Label> Confirm Password</Form.Label>
                             <input

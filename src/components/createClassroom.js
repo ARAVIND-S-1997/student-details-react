@@ -23,7 +23,6 @@ const createClassnameSchema = yup.object({
 })
 
 // create classroom component
-
 export function Createclassroom() {
 
     const history = useHistory();
@@ -34,6 +33,7 @@ export function Createclassroom() {
         onSubmit: (data) => createclassroomReq(data)
     })
 console.log(values)
+
     // api request
     const createclassroomReq = (value) => {
         const auth = {

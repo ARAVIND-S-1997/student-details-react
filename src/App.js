@@ -81,43 +81,43 @@ export default function App() {
           <Changepassword />
         </Route>
         <Route exact path="/welcomedashboard">
-          {(token === true) ? <Welcomedashboard /> : <Redirect to="/login" />}
+          {(token === true) ? <Welcomedashboard /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/myclassroom">
-          {(token === true) ? <Myclassroom /> : <Redirect to="/login" />}
+          {(token === true) ? <Myclassroom /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/createclassroom">
-          {(token === true) ? <Createclassroom /> : <Redirect to="/login" />}
+          {(token === true) ? <Createclassroom /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/classdetails/:id">
-          {(token === true) ? <Classdetails /> : <Redirect to="/login" />}
+          {(token === true) ? <Classdetails /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/addstudent/:id">
-          {(token === true) ? <Addstudent /> : <Redirect to="/login" />}
+          {(token === true) ? <Addstudent /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/studentinfo/:id">
-          {(token === true) ? <IndividualStudentDetails /> : <Redirect to="/login" />}
+          {(token === true) ? <IndividualStudentDetails /> : <Redirect to="/" />}
         </Route>
         
         <Route exact path="/editstudent/:id">
-          {(token === true) ? <EditStudentInfo /> : <Redirect to="/login" />}
+          {(token === true) ? <EditStudentInfo /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/addmarks/:id">
-          {(token === true) ? <Addmarks /> : <Redirect to="/login" />}
+          {(token === true) ? <Addmarks /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/userdetails">
-          {(token === true) ? <Userdetails /> : <Redirect to="/login" />}
+          {(token === true) ? <Userdetails /> : <Redirect to="/" />}
 
         </Route>
         <Route exact path="/edituserdetails/:id">
-          {(token === true) ? <Edituserdetails /> : <Redirect to="/login" />}
+          {(token === true) ? <Edituserdetails /> : <Redirect to="/" />}
         </Route>
       </Switch>
     </>

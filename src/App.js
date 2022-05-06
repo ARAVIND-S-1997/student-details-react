@@ -41,7 +41,7 @@ export default function App() {
   return (
     <>
       <div>
-            {/* nav bar container */}
+            {/* Header */}
             {(token===true) ?
                 <Navbar className="navbar">
                     <Container>

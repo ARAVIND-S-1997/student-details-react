@@ -73,7 +73,7 @@ export function EditStudentInfo() {
             })
     }
 
-    useEffect(getstudentinfo, [authtoken]);
+    useEffect(getstudentinfo, [authtoken,id]);
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: { name: student.name, dob: student.dob, emailid: student.emailid, address: student.address, contactno: student.contactno, religion: student.religion },

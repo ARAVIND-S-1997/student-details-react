@@ -50,7 +50,8 @@ export function Myclassroom() {
 
     }
     
-    useEffect(myclassroomReq, [authtoken]);
+        //eslint-disable-next-line
+    useEffect(myclassroomReq, [authtoken,authemail]);
     return (
         <div className="myclassroom-main-container">
             {

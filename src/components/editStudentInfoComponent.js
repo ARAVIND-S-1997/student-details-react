@@ -31,6 +31,7 @@ const formValidation = yup.object({
     emailid: yup
         .string()
         .required("Email field should not be empty")
+        // eslint-disable-next-line 
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
     address: yup
         .string()

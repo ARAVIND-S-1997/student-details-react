@@ -34,6 +34,7 @@ const formValidation = yup.object({
     emailid: yup
         .string()
         .required("Email field should not be empty")
+        // eslint-disable-next-line 
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
 })
 
@@ -57,7 +58,7 @@ export function Edituserdetails() {
         axios({ url: `${apiurl}/home/userdetails`, method: "GET", headers: auth })
             .then((response) => setuserdetails(response.data))
     }
-    useEffect(userdetailReq, [id])
+ 
 
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
         initialValues: { firstname: userdetails.firstname, lastname: userdetails.lastname, dob: userdetails.dob, emailid: userdetails.emailid },
@@ -79,6 +80,7 @@ export function Edituserdetails() {
                 }
             })
     }
+    useEffect(userdetailReq, [id])
     return (
         <div>
             <div className="edituser-form-container">

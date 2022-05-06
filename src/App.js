@@ -19,13 +19,13 @@ import { Addmarks } from "./components/addMarksComponent";
 import { Userdetails } from "./components/userdetailsComponent";
 import { Edituserdetails } from "./components/edituserdetailsComponent";
 import { Editmarks } from "./components/editmarksComponent";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 
 // Root component
 function App() {
 
-  const authtoken = localStorage.getItem("token");
+  // const authtoken = localStorage.getItem("token");
 
 
   return (

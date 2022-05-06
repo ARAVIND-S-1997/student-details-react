@@ -49,7 +49,7 @@ export function Classdetails() {
             .then((response) => setstudents(response.data.students));
     }
 
-    useEffect(getStudentsReq, [authtoken])
+    useEffect(getStudentsReq, [authtoken,id])
     return (
         <div>
             <div className='classdetails-add-student-btn-div'>

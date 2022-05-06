@@ -19,7 +19,7 @@ export function Userdetails() {
     const authtoken = localStorage.getItem("token");
     const authemail = localStorage.getItem("emailid");
 
-const history=useHistory();
+    const history = useHistory();
     const [userdetails, setuserdetails] = useState([]);
     console.log(userdetails);
 
@@ -32,7 +32,7 @@ const history=useHistory();
         axios({ url: `${apiurl}/home/userdetails`, method: "GET", headers: auth })
             .then((response) => setuserdetails(response.data))
     }
-    useEffect(userdetailReq, [authtoken])
+    useEffect(userdetailReq, [])
     return (
         <div >
             <Card className="">
@@ -41,7 +41,7 @@ const history=useHistory();
                     <h3>Name: {userdetails.firstname} {userdetails.lastname}</h3>
                     <h4>Date of birth: {userdetails.dob}</h4>
                     <h4>Email address:{userdetails.emailid}</h4>
-                    <Button onClick={()=>history.push(`/edituserdetails/${userdetails._id}`)}  variant="primary">Edit user detail</Button>
+                    <Button onClick={() => history.push(`/edituserdetails/${userdetails._id}`)} variant="primary">Edit user detail</Button>
                 </Card.Body>
             </Card>
         </div>

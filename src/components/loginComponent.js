@@ -23,7 +23,7 @@ const formValidation = yup.object({
 
 
 // login component
-export function Login() {
+export function Login({settoken}) {
 
     // formik functionality
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
@@ -38,18 +38,17 @@ export function Login() {
     const login = (value) => {
         axios({ url: `${apiurl}/user/login`, method: "POST", data: value })
             .then((response) => {
-                console.log(response);
                 if (response.status === 200) {
                     try {
                         const token = response.data.finalToken;
                         const emailid = response.data.emailid;
-                        const firstname=response.data.firstname;
-                        const lastname=response.data.lastname;
+                        const firstname = response.data.firstname;
+                        const lastname = response.data.lastname;
                         localStorage.setItem("token", token);
                         localStorage.setItem("emailid", emailid);
-                        localStorage.setItem("firstname",firstname);
-                        localStorage.setItem("lastname",lastname);
-                        // history.push(`/welcomedashboard/${response.data._id}`);
+                        localStorage.setItem("firstname", firstname);
+                        localStorage.setItem("lastname", lastname);
+                        settoken(true)
                         history.push(`/welcomedashboard`)
                     } catch (errors) {
                         console.log("Error is:", errors)
@@ -58,11 +57,9 @@ export function Login() {
                 }
             })
     }
-
-
     return (
         <div className="login-form-container">
-            <Card classname="login-form-card">
+            <Card className="login-form-card">
                 <Card.Body>
                     <Form onSubmit={handleSubmit} className="login-form">
                         <Form.Group className="login-emailid-part" controlId="formBasicEmail">
@@ -105,7 +102,6 @@ export function Login() {
                         <Button className="login-form-button" variant="primary" type="submit">
                             Submit
                         </Button>
-
                     </Form>
                 </Card.Body>
             </Card>

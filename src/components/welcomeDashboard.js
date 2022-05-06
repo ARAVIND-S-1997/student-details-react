@@ -5,25 +5,19 @@ import { Nav } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 // other file imports
-
 import { Myclassroom } from './myClassroom';
-
-
-
-
 
 
 
 // welcome dashboard component
 export function Welcomedashboard() {
+    const authtoken = localStorage.getItem("token");
     const history = useHistory();
 
-    const authtoken = localStorage.getItem("token");
-  
     return (
         <div>
             {/* content container */}
-                <div>
+            <div>
                 {(authtoken !== null) ?
                     <div>
                         <Nav variant="tabs" defaultActiveKey="/home">
@@ -35,9 +29,9 @@ export function Welcomedashboard() {
                             </Nav.Item>
                         </Nav>
                         <h2 className='welcomdashboard-title' >Clasrooms are:</h2>
-                        <Myclassroom/>
+                        <Myclassroom />
                     </div> : null}
-                </div>
+            </div>
         </div>
     )
 }

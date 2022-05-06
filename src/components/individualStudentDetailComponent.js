@@ -22,7 +22,7 @@ export function IndividualStudentDetails() {
 
     const authtoken = localStorage.getItem("token");
     const authemail = localStorage.getItem("emailid");
-  
+
     const { id } = useParams();
     console.log(id);
 
@@ -68,8 +68,8 @@ export function IndividualStudentDetails() {
             })
     }
 
-
-    useEffect(getIndividualStudentReq, [authtoken]);
+    // eslint-disable-next-line
+    useEffect(getIndividualStudentReq, [id]);
 
     return (
         <div>
@@ -106,10 +106,7 @@ export function IndividualStudentDetails() {
                                     <h4>Science:{science}</h4>
                                     <h4>Social:{social}</h4>
                                     <h4>Total:{total}</h4>
-                                    <ButtonGroup>
-                                        <Button onClick={() => { history.push(`editmarks/${_id}`) }} variant="primary">Edit</Button>
-                                        <Button onClick={() => deletemarks(_id)} variant="danger">Delete</Button>
-                                    </ButtonGroup>
+                                    <Button onClick={() => deletemarks(_id)} variant="danger">Delete</Button>
                                 </Card.Body>
                             </Card>
                         </div>

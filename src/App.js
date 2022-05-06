@@ -68,7 +68,7 @@ export default function App() {
                 </Navbar>}
         </div>
       <Switch>
-        <Route exact path="/login">
+        <Route exact path="/">
           <Login settoken={settoken} />
         </Route>
         <Route exact path="/signup">

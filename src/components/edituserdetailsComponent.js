@@ -80,7 +80,8 @@ export function Edituserdetails() {
                 }
             })
     }
-    useEffect(userdetailReq, [authtoken])
+    //eslint-disable-next-line
+    useEffect(userdetailReq, [id])
     return (
         <div>
             <div className="edituser-form-container">

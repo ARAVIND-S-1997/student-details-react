@@ -32,6 +32,7 @@ export function Userdetails() {
         axios({ url: `${apiurl}/home/userdetails`, method: "GET", headers: auth })
             .then((response) => setuserdetails(response.data))
     }
+    //eslint-disable-next-line
     useEffect(userdetailReq, [])
     return (
         <div >

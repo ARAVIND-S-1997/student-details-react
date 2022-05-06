@@ -51,7 +51,6 @@ export function EditStudentInfo() {
     const authtoken = localStorage.getItem("token");
     const authemail = localStorage.getItem("emailid");
 
-
     const history = useHistory();
 
     const { id } = useParams();
@@ -72,8 +71,8 @@ export function EditStudentInfo() {
                 setstudent(finalData)
             })
     }
-
-    useEffect(getstudentinfo, [authtoken,id]);
+    // eslint-disable-next-line
+    useEffect(getstudentinfo, [id]);
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: { name: student.name, dob: student.dob, emailid: student.emailid, address: student.address, contactno: student.contactno, religion: student.religion },

@@ -50,7 +50,7 @@ export function Myclassroom() {
 
     }
     
-    useEffect(myclassroomReq, [classroom]);
+    useEffect(myclassroomReq, [authtoken]);
     return (
         <div className="myclassroom-main-container">
             {

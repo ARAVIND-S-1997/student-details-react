@@ -69,7 +69,7 @@ export function IndividualStudentDetails() {
     }
 
 
-    useEffect(getIndividualStudentReq, [id]);
+    useEffect(getIndividualStudentReq, [authtoken]);
 
     return (
         <div>

@@ -32,7 +32,7 @@ const history=useHistory();
         axios({ url: `${apiurl}/home/userdetails`, method: "GET", headers: auth })
             .then((response) => setuserdetails(response.data))
     }
-    useEffect(userdetailReq, [])
+    useEffect(userdetailReq, [authtoken])
     return (
         <div >
             <Card className="">

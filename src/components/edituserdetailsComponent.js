@@ -75,12 +75,12 @@ export function Edituserdetails() {
         }
         axios({ url: `${apiurl}/home/edituserdetails`, method: "POST", headers: auth, data: datas })
             .then((response) => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     history.push("/userdetails")
                 }
             })
     }
-    useEffect(userdetailReq, [id])
+    useEffect(userdetailReq, [authtoken])
     return (
         <div>
             <div className="edituser-form-container">

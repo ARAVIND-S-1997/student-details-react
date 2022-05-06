@@ -28,6 +28,7 @@ const formValidation = yup.object({
     emailid: yup
         .string()
         .required("Email field should not be empty")
+        // eslint-disable-next-line 
         .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
     address: yup
         .string()
@@ -66,7 +67,7 @@ export function Addstudent() {
         axios({ url: `${apiurl}/addstudent/newstudent`, method: "POST", headers: auth, data: value })
             .then((response) => {
                 try {
-                    if (response.status == 200) {
+                    if (response.status === 200) {
                         history.push(`/classdetails/${id}`)
                     }
                 } catch (error) {

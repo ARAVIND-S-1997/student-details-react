@@ -93,10 +93,10 @@ export function IndividualStudentDetails() {
             </div>
 
             <div>
+            <h1 className="indiv-stud-titles">Mark details:</h1>
                 {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
                     return (
                         <div>
-                            <h1 className="indiv-stud-titles">Mark details:</h1>
                             <Card className="indiv-stud-marks-card">
                                 <Card.Body>
                                     <h2>Month:{month}</h2>

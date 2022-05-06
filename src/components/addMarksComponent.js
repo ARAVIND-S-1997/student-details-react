@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
-import { authemail,authtoken } from './welcomeDashboard.js';
+
 
 
 // validation
@@ -31,6 +31,10 @@ const formValidation = yup.object({
 
 // add marks component
 export function Addmarks() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
         initialValues: { month: "", tamil: "", english: "", maths: "", science: "", social: "", total: "" },
         validationSchema: formValidation,

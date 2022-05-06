@@ -13,7 +13,7 @@ import { useHistory } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authemail, authtoken } from './welcomeDashboard.js';
+
 
 
 // schema for creating classroom
@@ -24,6 +24,10 @@ const createClassnameSchema = yup.object({
 
 // create classroom component
 export function Createclassroom() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+ 
 
     const history = useHistory();
 

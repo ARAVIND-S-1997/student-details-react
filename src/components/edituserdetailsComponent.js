@@ -14,7 +14,6 @@ import { useState, useEffect } from 'react';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
-import { authtoken, authemail } from './welcomeDashboard.js';
 import { useParams } from 'react-router-dom';
 
 // validation schema
@@ -40,6 +39,10 @@ const formValidation = yup.object({
 
 // edit user detail component
 export function Edituserdetails() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+
     const history = useHistory();
     const{id}=useParams
     const [userdetails, setuserdetails] = useState([]);

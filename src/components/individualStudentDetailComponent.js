@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom"
 
 // other file imports
-import { authtoken, authemail } from './welcomeDashboard.js';
 import { apiurl } from "../apiLink";
 
 
@@ -20,6 +19,10 @@ import Button from 'react-bootstrap/Button';
 import { ButtonGroup } from "react-bootstrap";
 
 export function IndividualStudentDetails() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+  
     const { id } = useParams();
     console.log(id);
 

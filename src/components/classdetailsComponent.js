@@ -7,7 +7,7 @@ import { ButtonGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 // other file imports
-import { authtoken, authemail } from './welcomeDashboard.js';
+
 import { apiurl } from '../apiLink';
 
 // hooks imports
@@ -17,6 +17,11 @@ import { useHistory } from 'react-router-dom';
 
 // class detail component
 export function Classdetails() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+ 
+
     const history = useHistory();
     const { id } = useParams();
 

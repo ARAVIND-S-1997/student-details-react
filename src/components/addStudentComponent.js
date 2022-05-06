@@ -13,7 +13,6 @@ import { useFormik } from 'formik';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { authemail, authtoken } from './welcomeDashboard.js';
 import { useParams, useHistory } from 'react-router-dom';
 
 // validationSchema for adding new student
@@ -44,6 +43,10 @@ const formValidation = yup.object({
 
 // adding new student function component
 export function Addstudent() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: { name: "", lastname: "", dob: "", emailid: "", address: "", contactno: "", religion: "" },
         validationSchema: formValidation,

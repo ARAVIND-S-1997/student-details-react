@@ -10,11 +10,15 @@ import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 
 // other file imports
-import { authtoken, authemail } from './welcomeDashboard.js';
+
 import { apiurl } from "../apiLink"
 
 // user detail component
 export function Userdetails() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+
 const history=useHistory();
     const [userdetails, setuserdetails] = useState([]);
     console.log(userdetails);

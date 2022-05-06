@@ -11,11 +11,16 @@ import { useHistory } from "react-router-dom";
 
 // other file imports
 import { apiurl } from "../apiLink"
-import { authemail, authtoken, firstname } from './welcomeDashboard.js';
+
 
 
 // my classroom req
 export function Myclassroom() {
+
+    const authtoken = localStorage.getItem("token");
+    const authemail = localStorage.getItem("emailid");
+    const firstname=localStorage.getItem("firstname");
+  
     const [classroom, setclassroom] = useState([]);
     console.log("classrooms are:", classroom);
 
@@ -50,9 +55,9 @@ export function Myclassroom() {
         <div className="myclassroom-main-container">
             {
                 (classroom !== undefined) ? classroom.map(({ _id, classname, year }) => (
-                    <div className="myclassroom-content-container-one">
+                    <div key={_id} className="myclassroom-content-container-one">
                         <img src={require("./images/classroomImage.png")} alt="classroom logo" />
-                        <div key={_id} className="myclassroom-content-container-two">
+                        <div  className="myclassroom-content-container-two">
                             <h6>Class:{classname}</h6>
                             <h6>Year:{year}</h6>
                             <ButtonGroup>

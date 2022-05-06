@@ -25,7 +25,7 @@ import { EditStudentInfo } from "./components/editStudentInfoComponent"
 import { Addmarks } from "./components/addMarksComponent";
 import { Userdetails } from "./components/userdetailsComponent";
 import { Edituserdetails } from "./components/edituserdetailsComponent";
-
+import { Addstudent } from './components/addStudentComponent';
 
 
 // Root component
@@ -97,9 +97,13 @@ export default function App() {
         </Route>
 
         <Route exact path="/addstudent/:id">
-          {(token === true) ? <IndividualStudentDetails /> : <Redirect to="/login" />}
+          {(token === true) ? <Addstudent /> : <Redirect to="/login" />}
         </Route>
 
+        <Route exact path="/studentinfo/:id">
+          {(token === true) ? <IndividualStudentDetails /> : <Redirect to="/login" />}
+        </Route>
+        
         <Route exact path="/editstudent/:id">
           {(token === true) ? <EditStudentInfo /> : <Redirect to="/login" />}
         </Route>

@@ -28,7 +28,7 @@ export function Welcomedashboard() {
                                 <Nav.Link onClick={() => { history.push("/createclassroom") }}>Create Classroom</Nav.Link>
                             </Nav.Item>
                         </Nav>
-                        <h2 className='welcomdashboard-title' >Clasrooms are:</h2>
+                        <h2 className='welcomdashboard-title' >Clasrooms are</h2>
                         <Myclassroom />
                     </div> : null}
             </div>

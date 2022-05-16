@@ -34,8 +34,7 @@ export function IndividualStudentDetails() {
     const { marks } = student;
     console.log(marks);
 
-    const _id = student._id
-    console.log("Id is ", _id)
+
 
 
     // indivdual student req
@@ -84,8 +83,8 @@ export function IndividualStudentDetails() {
                         <h4>Contact number:{student.contactno}</h4>
                         <h4>Religion:{student.religion}</h4>
                         <ButtonGroup>
-                            <Button onClick={() => { history.push(`/editstudent/${_id}`) }} variant="primary">Edit</Button>
-                            <Button onClick={() => { history.push(`/addmarks/${_id}`) }} variant="secondary">Add marks</Button>
+                            <Button onClick={() => { history.push(`/editstudent/${id}`) }} variant="primary">Edit</Button>
+                            <Button onClick={() => { history.push(`/addmarks/${id}`) }} variant="secondary">Add marks</Button>
                         </ButtonGroup>
 
                     </Card.Body>
@@ -94,7 +93,8 @@ export function IndividualStudentDetails() {
 
             <div>
             <h1 className="indiv-stud-titles">Mark details:</h1>
-                {(marks !== undefined) ? marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
+                {(marks !== undefined) ? 
+                marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
                     return (
                         <div>
                             <Card className="indiv-stud-marks-card">
@@ -106,7 +106,10 @@ export function IndividualStudentDetails() {
                                     <h4>Science:{science}</h4>
                                     <h4>Social:{social}</h4>
                                     <h4>Total:{total}</h4>
+                                    <ButtonGroup>
                                     <Button onClick={() => deletemarks(_id)} variant="danger">Delete</Button>
+                                    </ButtonGroup>
+                                   
                                 </Card.Body>
                             </Card>
                         </div>

@@ -75,7 +75,7 @@ export function Addmarks() {
                                 type="text"
                                 placeholder="Enter the month"
                             />
-                            {errors.month && touched.month ? (<div>{errors.month}</div>) : null}
+                            {errors.month && touched.month ? (<div classname="error">{errors.month}</div>) : null}
                         </Form.Group>
 
                         {/* language tamil field */}

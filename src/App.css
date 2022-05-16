@@ -2,11 +2,16 @@
 .navbar {
     background-color: #808080;
     height: 110px;
+    font-family: 'Poppins', sans-serif;
+}
+.app-title{
+    font-size: xx-large;
 }
 
 .nav-bar-btn-comb {
     display: flex;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* login part */
@@ -14,6 +19,8 @@
 .login-form-card {
     height: 300px;
     width: 550px;
+    font-family: 'Poppins', sans-serif;
+    
 }
 
 .login-form-container {
@@ -44,7 +51,7 @@
 }
 
 /* logout button */
-.logout-btn{
+.logout-btn {
     margin-bottom: 10px;
 }
 
@@ -56,6 +63,7 @@
     flex-direction: column;
     align-items: stretch;
     flex-wrap: nowrap;
+    font-family: 'Poppins', sans-serif;
 }
 
 .signup-form-button {
@@ -126,9 +134,10 @@
 }
 
 /* welcomedashboard */
-.welcomdashboard-title{
+.welcomdashboard-title {
     margin-top: 20px;
     margin-left: 40px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* my classroom */
@@ -160,6 +169,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* create classroom */
@@ -167,6 +177,7 @@
 .create-classroom-main-div {
     display: flex;
     flex-direction: row;
+    
 }
 
 .create-classroom-form {
@@ -174,6 +185,7 @@
     flex-direction: column;
     height: 200px;
     width: 300px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .create-classname-part,
@@ -185,33 +197,39 @@
 .classdetails-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Individual student component */
-.indiv-stud-titles{
+.indiv-stud-titles {
     margin-top: 20px;
     margin-left: 40px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .indiv-stud-info-card {
     height: 300px;
     width: 90%;
     margin-top: 20px;
-    margin-left: 65px
+    margin-left: 65px;
+    font-family: 'Poppins', sans-serif;
+    
 }
 
-.indiv-stud-marks-card{
+.indiv-stud-marks-card {
     height: 370px;
     width: 90%;
     margin-top: 20px;
-    margin-left: 65px
+    margin-left: 65px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* classdetails component */
 .classdetails-add-student-btn {
     width: 90%;
     display: flex;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -219,6 +237,7 @@
     display: flex;
     justify-content: center;
     margin: 10px;
+
 }
 
 /* addstudent component */
@@ -226,7 +245,7 @@
 .add-student-form {
     display: flex;
     flex-direction: column;
-
+    font-family: 'Poppins', sans-serif;
 }
 
 .add-student-name-part,
@@ -250,6 +269,7 @@
 .edit-student-form {
     display: flex;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -272,19 +292,26 @@
 
 /* add marks container */
 
-.addmarks-form-field{
+.addmarks-form-field {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 }
 
-.addmarks-btn{
+.addmarks-btn {
     margin-top: 20px;
     width: 100%
 }
 
-.addmarks-main-container{
+.addmarks-main-container {
     margin-top: 20px;
     margin-left: 140px;
     height: fit-content;
     width: 80%;
+    font-family: 'Poppins', sans-serif;
 }
+
+.root {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+

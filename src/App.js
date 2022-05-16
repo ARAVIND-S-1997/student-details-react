@@ -40,12 +40,12 @@ export default function App() {
 
   return (
     <>
-      <div>
+      <div className='root'>
             {/* Header */}
             {(token===true) ?
                 <Navbar className="navbar">
                     <Container>
-                        <Navbar.Brand href="/welcomedashboard" >Student details </Navbar.Brand>
+                        <Navbar.Brand className="app-title" href="/welcomedashboard" >MyClassroom </Navbar.Brand>
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
                             <div className='nav-bar-btn-comb'>

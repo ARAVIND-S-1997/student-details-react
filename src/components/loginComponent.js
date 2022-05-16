@@ -17,7 +17,10 @@ import { useFormik } from 'formik';
 
 // login validation schema
 const formValidation = yup.object({
-    emailid: yup.string().required("Email field should not be empty"),
+    emailid: yup.string()
+    .required("Email field should not be empty")
+    .typeError("Invalid emailid")
+    .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
     password: yup.string().required("Password field should not be empty")
 })
 
@@ -74,7 +77,7 @@ export function Login({settoken}) {
                                 type="emailid"
                                 placeholder="Enter email"
                             />
-                            {errors.emailid && touched.emailid ? (<div>{errors.emailid}</div>) : null}
+                            {errors.emailid && touched.emailid ? (<div  classname="error">{errors.emailid}</div>) : null}
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
                             </Form.Text>
@@ -92,7 +95,7 @@ export function Login({settoken}) {
                                 type="password"
                                 placeholder="Password"
                             />
-                            {errors.password && touched.password ? (<div>{errors.password}</div>) : null}
+                            {errors.password && touched.password ? (<div  classname="error">{errors.password}</div>) : null}
                         </Form.Group>
 
                         {/* links for forget password and signup */}

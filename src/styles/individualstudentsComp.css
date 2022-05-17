@@ -1,0 +1,23 @@
+/* Individual student component */
+.indiv-stud-titles {
+    margin-top: 20px;
+    margin-left: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.indiv-stud-info-card {
+    height: 300px;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.indiv-stud-marks-card {
+    height: 370px;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-family: 'Poppins', sans-serif;
+}

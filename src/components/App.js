@@ -10,22 +10,22 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useState } from "react";
 
 // other file imports
-import './App.css';
+import "../styles/appComp.css"
 // import { NavBar } from "./components/navBar"
-import { Login } from './components/loginComponent';
-import { Signup } from './components/signupComponent';
-import { Welcomedashboard } from './components/welcomeDashboard';
-import { Forgetpassword } from './components/forgetpasswordComponent';
-import { Changepassword } from './components/changepasswordComponent';
-import { Myclassroom } from "./components/myClassroom";
-import { Createclassroom } from "./components/createClassroom";
-import { Classdetails } from "./components/classdetailsComponent";
-import { IndividualStudentDetails } from "./components/individualStudentDetailComponent";
-import { EditStudentInfo } from "./components/editStudentInfoComponent"
-import { Addmarks } from "./components/addMarksComponent";
-import { Userdetails } from "./components/userdetailsComponent";
-import { Edituserdetails } from "./components/edituserdetailsComponent";
-import { Addstudent } from './components/addStudentComponent';
+import { Login } from './loginComponent';
+import { Signup } from './signupComponent';
+import { Welcomedashboard } from './welcomeDashboard';
+import { Forgetpassword } from './forgetpasswordComponent';
+import { Changepassword } from './changepasswordComponent';
+import { Myclassroom } from "./myClassroom";
+import { Createclassroom } from "./createClassroom";
+import { Classdetails } from "./classdetailsComponent";
+import { IndividualStudentDetails } from "./individualStudentDetailComponent";
+import { EditStudentInfo } from "./editStudentInfoComponent"
+import { Addmarks } from "./addMarksComponent";
+import { Userdetails } from "./userdetailsComponent";
+import { Edituserdetails } from "./edituserdetailsComponent";
+import { Addstudent } from './addStudentComponent';
 
 
 // Root component
@@ -34,15 +34,21 @@ export default function App() {
   // const authtoken = localStorage.getItem("token");
   const firstname = localStorage.getItem("firstname");
   const lastname = localStorage.getItem("lastname");
+  const authtoken = localStorage.getItem("token");
 
   const [token, settoken] = useState(false);
   console.log(token);
+
+  const[loginalert,setloginalert]=useState();
+  console.log(loginalert)
+
+
 
   return (
     <>
       <div className='root'>
             {/* Header */}
-            {(token===true) ?
+            {(token===true||authtoken!==null) ?
                 <Navbar className="navbar">
                     <Container>
                         <Navbar.Brand className="app-title" href="/welcomedashboard" >MyClassroom </Navbar.Brand>
@@ -69,10 +75,10 @@ export default function App() {
         </div>
       <Switch>
         <Route exact path="/">
-          <Login settoken={settoken} />
+          <Login  loginalert={loginalert} settoken={settoken} />
         </Route>
         <Route exact path="/signup">
-          <Signup />
+          <Signup setloginalert={setloginalert} />
         </Route>
         <Route exact path="/forgetpassword">
           <Forgetpassword />
@@ -81,43 +87,43 @@ export default function App() {
           <Changepassword />
         </Route>
         <Route exact path="/welcomedashboard">
-          {(token === true) ? <Welcomedashboard /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Welcomedashboard /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/myclassroom">
-          {(token === true) ? <Myclassroom /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Myclassroom /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/createclassroom">
-          {(token === true) ? <Createclassroom /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Createclassroom /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/classdetails/:id">
-          {(token === true) ? <Classdetails /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Classdetails /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/addstudent/:id">
-          {(token === true) ? <Addstudent /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Addstudent /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/studentinfo/:id">
-          {(token === true) ? <IndividualStudentDetails /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <IndividualStudentDetails /> : <Redirect to="/" />}
         </Route>
         
         <Route exact path="/editstudent/:id">
-          {(token === true) ? <EditStudentInfo /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <EditStudentInfo /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/addmarks/:id">
-          {(token === true) ? <Addmarks /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Addmarks /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/userdetails">
-          {(token === true) ? <Userdetails /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Userdetails /> : <Redirect to="/" />}
 
         </Route>
         <Route exact path="/edituserdetails/:id">
-          {(token === true) ? <Edituserdetails /> : <Redirect to="/" />}
+          {(token === true||authtoken!==null) ? <Edituserdetails /> : <Redirect to="/" />}
         </Route>
       </Switch>
     </>

@@ -10,6 +10,7 @@ import { useParams, useHistory } from "react-router-dom"
 
 // other file imports
 import { apiurl } from "../apiLink";
+import "../styles/individualstudentsComp.css"
 
 
 
@@ -73,7 +74,7 @@ export function IndividualStudentDetails() {
     return (
         <div>
             <div>
-                <h1 className="indiv-stud-titles">Student Information:</h1>
+                <h1 className="indiv-stud-titles">Student Information</h1>
                 <Card className="indiv-stud-info-card">
                     <Card.Body>
                         <h4>Name:{student.name}</h4>
@@ -92,7 +93,7 @@ export function IndividualStudentDetails() {
             </div>
 
             <div>
-            <h1 className="indiv-stud-titles">Mark details:</h1>
+            <h1 className="indiv-stud-titles">Mark details</h1>
                 {(marks !== undefined) ? 
                 marks.map(({ month, tamil, english, maths, science, social, total, _id }) => {
                     return (

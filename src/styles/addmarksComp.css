@@ -1,0 +1,21 @@
+
+/* add marks container */
+
+.addmarks-form-field {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.addmarks-btn {
+    margin-top: 20px;
+    width: 100%
+}
+
+.addmarks-main-container {
+    margin-top: 20px;
+    margin-left: 140px;
+    height: fit-content;
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+}

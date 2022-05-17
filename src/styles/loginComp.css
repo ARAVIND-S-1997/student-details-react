@@ -1,0 +1,40 @@
+
+/* login part */
+
+.login-form-card {
+    height: fit-content;
+    width: 550px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.login-form-container {
+    height: 100px;
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 440px;
+
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+
+.login-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.login-emailid-part,
+.login-password-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.logout-btn {
+    margin-bottom: 10px;
+}

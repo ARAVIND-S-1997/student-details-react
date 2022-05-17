@@ -1,0 +1,26 @@
+/* edit student component */
+
+
+.edit-student-form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    height: fit-content;
+
+}
+
+.edit-student-name-part,
+.edit-student-dob-part,
+.edit-student-email-part,
+.edit-student-address-part,
+.edit-student-contactno-part,
+.edit-student-religion-part {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.edit-student-btn {
+   margin-top: 10px;
+    width:100%;
+}

@@ -2,6 +2,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Alert from 'react-bootstrap/Alert'
 
 // other packages imports
 import * as yup from 'yup';
@@ -10,23 +11,30 @@ import axios from 'axios';
 
 // other file imports
 import { apiurl } from '../apiLink';
+import "../styles/loginComp.css"
 
 // hooks imports
 import { useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 
 // login validation schema
 const formValidation = yup.object({
     emailid: yup.string()
-    .required("Email field should not be empty")
-    .typeError("Invalid emailid")
-    .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
+        .required("Email field should not be empty")
+        .typeError("Invalid emailid")
+        .matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "invalid email"),
     password: yup.string().required("Password field should not be empty")
 })
 
 
 // login component
-export function Login({settoken}) {
+export function Login({ settoken, loginalert }) {
+
+    const [showalert, setshowalert] = useState(false)
+    setTimeout(() => {
+        setshowalert(true)
+    }, 3000);
 
     // formik functionality
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
@@ -77,7 +85,7 @@ export function Login({settoken}) {
                                 type="emailid"
                                 placeholder="Enter email"
                             />
-                            {errors.emailid && touched.emailid ? (<div  classname="error">{errors.emailid}</div>) : null}
+                            {errors.emailid && touched.emailid ? (<div classname="error">{errors.emailid}</div>) : null}
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
                             </Form.Text>
@@ -95,7 +103,7 @@ export function Login({settoken}) {
                                 type="password"
                                 placeholder="Password"
                             />
-                            {errors.password && touched.password ? (<div  classname="error">{errors.password}</div>) : null}
+                            {errors.password && touched.password ? (<div classname="error">{errors.password}</div>) : null}
                         </Form.Group>
 
                         {/* links for forget password and signup */}
@@ -108,6 +116,13 @@ export function Login({settoken}) {
                     </Form>
                 </Card.Body>
             </Card>
+            {/* alert msg*/}
+            <div >
+                {(showalert === false && loginalert !== undefined) ? <Alert variant='success'>
+                    {loginalert}
+                </Alert> : null}
+
+            </div>
         </div>
 
     )

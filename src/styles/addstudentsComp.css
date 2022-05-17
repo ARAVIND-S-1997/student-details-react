@@ -1,0 +1,23 @@
+/* addstudent component */
+
+.add-student-form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    height: fit-content;
+}
+
+.add-student-name-part,
+.add-student-dob-part,
+.add-student-email-part,
+.add-student-address-part,
+.add-student-contactno-part,
+.add-student-religion-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-student-btn {
+    margin-top: 20px;
+    width: 100%;
+}

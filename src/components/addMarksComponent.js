@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
+import "../styles/addmarksComp.css"
 
 
 

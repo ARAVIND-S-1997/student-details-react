@@ -10,10 +10,12 @@ import axios from 'axios';
 
 // hooks imports
 import { useFormik } from 'formik';
+import { useParams, useHistory } from 'react-router-dom';
 
 // other file imports
 import { apiurl } from '../apiLink';
-import { useParams, useHistory } from 'react-router-dom';
+import "../styles/addstudentsComp.css"
+
 
 // validationSchema for adding new student
 const formValidation = yup.object({

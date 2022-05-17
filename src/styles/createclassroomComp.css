@@ -1,0 +1,29 @@
+
+/* create classroom */
+
+.create-classroom-main-div {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.create-classroom-form {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 300px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.create-classname-part,
+.create-year-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.classdetails-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}

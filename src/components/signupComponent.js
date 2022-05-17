@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+
 // other packages imports
 import * as yup from 'yup';
 import axios from 'axios';
@@ -13,6 +14,9 @@ import { useFormik } from 'formik';
 
 // other file imports
 import { apiurl } from '../apiLink.js';
+import "../styles/signupComp.css"
+
+
 
 // validation schema
 const formValidation = yup.object({
@@ -47,7 +51,7 @@ const formValidation = yup.object({
 })
 
 // signup component
-export function Signup() {
+export function Signup({setloginalert}) {
 
     // formik functionality
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
@@ -63,6 +67,7 @@ export function Signup() {
             axios({ url: `${apiurl}/user/signup`, method: "POST", data: values })
                 .then((response) => {
                     if (response.status === 200) {
+                        setloginalert(response.data.message)
                         history.push("/");
                     }
                 })
@@ -74,6 +79,7 @@ export function Signup() {
 
     return (
         <div className="signup-form-container">
+         
             <Card classname="signup-form-card">
                 <Card.Body>
                     <Form onSubmit={handleSubmit} className="signup-form">

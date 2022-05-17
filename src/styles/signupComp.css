@@ -1,0 +1,24 @@
+/* signup */
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-form-button {
+    margin-top: 10px;
+    background-color: aliceblue;
+}
+
+.signup-firstname-part,
+.signup-lastname-part,
+.signup-dob-part,
+.signup-emailid-part,
+.signup-password-part,
+.signup-confirmPassword-part {
+    display: flex;
+    flex-direction: column;
+}

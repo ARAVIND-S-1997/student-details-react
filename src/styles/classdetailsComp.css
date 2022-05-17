@@ -1,0 +1,14 @@
+/* classdetails component */
+.classdetails-add-student-btn {
+    width: 100%;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.classdetails-add-student-btn-div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+}

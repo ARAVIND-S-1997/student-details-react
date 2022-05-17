@@ -9,6 +9,7 @@ import axios from 'axios';
 
 // other file imports
 import { apiurl } from '../apiLink';
+import "../styles/changepasswordComp.css"
 
 // hooks imports
 import { useFormik } from 'formik';
